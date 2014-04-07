@@ -19,7 +19,7 @@ With options:
 $.("#mdeditor").mdeditor({
 	language: 'en-US', // language of editor
 	width: '100%', // width of editor
-	height: '250px', // height of textarea in the editor
+	height: '250px', // height of textarea in the editor - american english and german are available
 	specialBar: true, // includes the second (special) toolbar
 	formControl: true, // includes form submit, reset and a go back button
 	codeIcon: true, // includes button for code markup
