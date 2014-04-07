@@ -1,0 +1,123 @@
+<script type='text/javascript' language='javascript'>
+	if ($('#MDEditor_' + mdeditor.elementName + '_body_edit_textarea').height() < 400) {
+		$('#MDEditor_' + mdeditor.elementName + '_body_edit_textarea').animate({
+			height: 400
+		}, 150);
+	}
+</script>
+<div id='MDEditor_helpcontainer_replace'>
+	<table border='0' style='width: 100%;'>
+		<tbody>
+			<tr>
+				<td style='width: 200px; text-align: left; vertical-align: top;'>
+					<div class='MDEditor_container_help_menu' style='position: fixed;'>
+						<ul class='dropdown-menu' style='position: relative; display: block;'>
+							<li><a href='#mdanchor_about'>About MDEditor</a></li>
+							<li class='divider'></li>
+							<li><a href='#mdanchor_headers'>Headers</a></li>
+							<li><a href='#mdanchor_emphasis'>Emphasis</a></li>
+							<li><a href='#mdanchor_lists'>Lists</a></li>
+							<li><a href='#mdanchor_links'>Links</a></li>
+							<li><a href='#mdanchor_images'>Images</a></li>
+							<li><a href='#mdanchor_code'>Code and Syntax</a></li>
+							<li><a href='#mdanchor_tables'>Tables</a></li>
+							<li><a href='#mdanchor_blockquotes'>Blockquotes</a></li>
+							<li><a href='#mdanchor_html'>Inline HTML</a></li>
+							<li><a href='#mdanchor_hr'>Horizontal Rule</a></li>
+							<li><a href='#mdanchor_br'>Line Breaks</a></li>
+							<li><a href='#mdanchor_youtube'>YouTube Videos</a></li>
+						</ul>
+					</div>
+				</td>
+				<td style='text-align: left; vertical-align: top; padding-right: 30px;'>
+					<h1 id='mdanchor_about'>About MDEditor</h1>
+
+					<hr />
+
+					<p>MDEditor ist ein einfacher und schneller Markdown Editor, entwickelt von Andre Sieverding.</p>
+
+					<p>
+						<i class='fa fa-github-alt'></i> <a href='#'>MDEditor on GitHub</a><br />
+						<i class='fa fa-legal'></i> <a href='#'>License</a>
+					</p>
+
+					<h1 id='mdanchor_headers'>Headers</h1>
+
+					<hr />
+
+					<p>Markdown:</p>
+
+					<pre>A First Level Header<br />====================<br /><br />A Second Level Header<br />---------------------<br /><br /># Header 1<br /><br />## Header 2<br /><br />### Header 3</pre>
+
+					<p>Output:</p>
+
+					<pre>&lt;h1&gt;A First Level Header&lt;/h1&gt;<br /><br />&lt;h2&gt;A Second Level Header&lt;/h2&gt;<br /><br />&lt;h1&gt;Header 1&lt;/h1&gt;<br /><br />&lt;h2&gt;Header 2&lt;/h2&gt;<br /><br />&lt;h3&gt;Header 3&lt;/h3&gt;</pre>
+
+					<h1 id='mdanchor_emphasis'>Phrase Emphasis</h1>
+
+					<hr />
+
+					<p>Markdown uses asterisks and underscores to indicate spans of emphasis.</p>
+
+					<p>Markdown:</p>
+
+					<pre>Some of these words *are emphasized*.<br />Some of these words _are emphasized also_.<br /><br />Use two asterisks for **strong emphasis**.<br />Or, if you prefer, __use two underscores instead__.</pre>
+
+					<p>Output:</p>
+
+					<pre>&lt;p&gt;Some of these words &lt;em&gt;are emphasized&lt;/em&gt;.<br />Some of these words &lt;em&gt;are emphasized also&lt;/em&gt;.&lt;/p&gt;<br /><br />&lt;p&gt;Use two asterisks for &lt;strong&gt;strong emphasis&lt;/strong&gt;.<br />Or, if you prefer, &lt;strong&gt;use two [...]&lt;/strong&gt;.&lt;/p&gt;</pre>
+
+					<h1 id='mdanchor_lists'>Lists</h1>
+
+					<hr />
+
+					<p>Unordered (bulleted) lists use asterisks, pluses, and hyphens (*, +, and -) as list markers. These three markers are interchangable; this:</p>
+
+					<pre>*   Candy.<br />*   Gum.<br />*   Booze.</pre>
+
+					<p>this:</p>
+
+					<pre>+   Candy.<br />+   Gum.<br />+   Booze.</pre>
+
+					<p>and this:</p>
+
+					<pre>-   Candy.<br />-   Gum.<br />-   Booze.</pre>
+
+					<p>Output:</p>
+
+					<pre>&lt;ul&gt;<br />&lt;li&gt;Candy.&lt;/li&gt;<br />&lt;li&gt;Gum.&lt;/li&gt;<br />&lt;li&gt;Booze.&lt;/li&gt;<br />&lt;/ul&gt;</pre>
+
+					<p>Ordered (numbered) lists use regular numbers, followed by periods, as list markers:</p>
+
+					<pre>1.  Red.<br />2.  Green.<br />3.  Blue.</pre>
+
+					<p>Output:</p>
+
+					<pre>&lt;ol&gt;<br />&lt;li&gt;Red.&lt;/li&gt;<br />&lt;li&gt;Green.&lt;/li&gt;<br />&lt;li&gt;Blue.&lt;/li&gt;<br />&lt;/ol&gt;</pre>
+
+					<p>If you put blank lines between items, you’ll get <code>&lt;p&gt;</code> tags for the list item text. You can create multi-paragraph list items by indenting the paragraphs by 4 spaces or 1 tab:</p>
+
+					<pre>*   A list item.<br /><br />    With multiple paragraphs.<br /><br />*   Another item in the list.</pre>
+
+					<p>Output:</p>
+
+					<pre>&lt;ul&gt;<br />&lt;li&gt;&lt;p&gt;A list item.&lt;/p&gt;<br />&lt;p&gt;With multiple paragraphs.&lt;/p&gt;&lt;/li&gt;<br />&lt;li&gt;&lt;p&gt;Another item in the list.&lt;/p&gt;&lt;/li&gt;<br />&lt;/ul&gt;</pre>
+
+					<h1 id='mdanchor_links'>Links</h1>
+
+					<hr />
+
+					<p>Markdown supports two styles for creating links: inline and reference. With both styles, you use square brackets to delimit the text you want to turn into a link.</p>
+
+					<p>Inline-style links use parentheses immediately after the link text. For example:</p>
+
+					<pre>This is an [example link](http://example.com/).</pre>
+
+					<p>Output:</p>
+
+					<pre>&lt;p&gt;This is an &lt;a href="http://example.com/"&gt;<br />example link&lt;/a&gt;.&lt;/p&gt;</pre>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

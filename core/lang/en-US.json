@@ -1,0 +1,44 @@
+{
+	"button": {
+		"save": "Save",
+		"reset": "Delete",
+		"cancel": "Cancel",
+		"table": "Table",
+		"quotation": "Quotation",
+		"anchor": "Anchor",
+		"hr": "Horizontal Rule",
+		"youtube": "YouTube Video",
+		"code": "Code",
+		"mail": "E-Mail Address",
+		"phone": "Phone Number",
+		"icons": "Icons",
+		"attachment": "Attachment",
+		"bold": "Bold",
+		"italic": "Italic",
+		"underline": "Underline",
+		"strikethrough": "Strikethrough",
+		"olist": "Ordered List",
+		"ulist": "Unordered List",
+		"hyperlink": "Hyperlink",
+		"unlink": "Unlink",
+		"image": "Image",
+		"preview": "Preview",
+		"help": "Help",
+		"frame": {
+			"cancel": "Cancel",
+			"insert": "Insert"
+		}
+	},
+	"label": {
+		"wordCounter": "Words"
+	},
+	"message": {
+		"preview": {
+			"empty": "You haven't written anything yet!"
+		},
+		"error": "404 - Please check your internet connection!"
+	},
+	"tooltip": {
+		"close": "Close"
+	}
+}
