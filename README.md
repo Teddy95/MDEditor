@@ -2,6 +2,8 @@
 
 ![MDEditor Screenshot](http://i.imgur.com/AXKyN6X.png)
 
+## This is a public Pre-Alpha version of MDEditor
+
 ### Install Editor:
 
 HTML markup:
