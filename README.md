@@ -17,9 +17,9 @@ $.("#mdeditor").mdeditor();
 With options:
 ```javascript
 $.("#mdeditor").mdeditor({
-	language: 'en-US', // language of editor
+	language: 'en-US', // language of editor - american english and german are available
 	width: '100%', // width of editor
-	height: '250px', // height of textarea in the editor - american english and german are available
+	height: '250px', // height of textarea in the editor
 	specialBar: true, // includes the second (special) toolbar
 	formControl: true, // includes form submit, reset and a go back button
 	codeIcon: true, // includes button for code markup
