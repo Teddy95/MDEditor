@@ -136,10 +136,10 @@ function mdeditorButtonUnderline (elementName) {
 
 function mdeditorButtonStrikethrough (elementName) {
 	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == undefined || $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == '') {
-		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "<s></s>");
-		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end-4, 0);
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "~~~~");
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end-2, 0);
 	} else {
-		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "<s>" + $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text + "</s>");
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "~~" + $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text + "~~");
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
 	}
 }
@@ -150,13 +150,52 @@ function mdeditorButtonOList (elementName) {
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
 	} else {
 		var value;
+		var vals;
 		value = $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text;
+		vals = value.replace(/\r\n/g, '~/[...]/~').replace(/\n/g, '~/[...]/~').replace(/\r/g, '~/[...]/~');
+		vals = vals.split('~/[...]/~');
 
-		value.split();
+		var output;
+		output = '';
+
+		for (var i = 0; i < vals.length; i++) {
+			if (i == vals.length-1) {
+				output += i+1 + ". " + vals[i];
+			} else {
+				output += i+1 + ". " + vals[i] + "\r\n";
+			}
+		}
+
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', output);
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().start, 0);
 	}
 }
 
 function mdeditorButtonUList (elementName) {
+	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == undefined || $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == '') {
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "- ");
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
+	} else {
+		var value;
+		var vals;
+		value = $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text;
+		vals = value.replace(/\r\n/g, '~/[...]/~').replace(/\n/g, '~/[...]/~').replace(/\r/g, '~/[...]/~');
+		vals = vals.split('~/[...]/~');
+
+		var output;
+		output = '';
+
+		for (var i = 0; i < vals.length; i++) {
+			if (i == vals.length-1) {
+				output += "- " + vals[i];
+			} else {
+				output += "- " + vals[i] + "\r\n";
+			}
+		}
+
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', output);
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().start, 0);
+	}
 }
 
 function mdeditorButtonHyperlink (elementName) {
@@ -200,23 +239,8 @@ function mdeditorButtonPreview (elementName) {
 		editorValue = '<div class="alert alert-info"><i class="fa fa-info-circle"></i> ' + language.message.preview.empty + '</div>';
 	}
 
-	var websitePath;
-	websitePath = location.href;
-
-	$.ajax({
-		type: 'GET',
-		url: mdeditor.url + 'core/source/preview.php?markup=' + encodeURIComponent(editorValue),
-		data: 'returnData',
-		success: function (returnData) {
-			$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html(returnData).fadeIn(80);
-			});
-		},
-		error: function () {
-			$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
-			});
-		}
+	$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
+		$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html("<div class='MDEditor_body_actioncontainer_content_preview'>" + marked(editorValue) + "</div>").fadeIn(80);
 	});
 }
 
@@ -484,7 +508,7 @@ $.fn.mdeditor = function (settings) {
 
 	var EditorHTMLCode;
 	EditorHTMLCode = "<!-- MD Editor start © 2014 Andre Sieverding -->";
-	EditorHTMLCode += "<div id='MDEditor_" + elementName + "' class='MDEditor' style='width: " + settings.width + ";'><textarea id='MDEditor_" + elementName + "_hiddenarea' style='display: none !important;'></textarea><div id='MDEditor_" + elementName + "_buttons' class='MDEditor_buttons'>" + settingsSpecialBar + "<div id='MDEditor_" + elementName + "_buttons_toolbar_basic' class='btn-toolbar'><div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_bold' type='button' class='btn btn-default tipNDelay' title='" + language.button.bold + "' onclick='mdeditorButtonBold(\"" + elementName + "\");'><i class='fa fa-bold'></i></button><button id='MDEditor_" + elementName + "_buttons_button_italic' type='button' class='btn btn-default tipNDelay' title='" + language.button.italic + "' onclick='mdeditorButtonItalic(\"" + elementName + "\");'><i class='fa fa-italic'></i></button><button id='MDEditor_" + elementName + "_buttons_button_underline' type='button' class='btn btn-default tipNDelay' title='" + language.button.underline + "' onclick='mdeditorButtonUnderline(\"" + elementName + "\");'><i class='fa fa-underline'></i></button><button id='MDEditor_" + elementName + "_buttons_button_strikethrough' type='button' class='btn btn-default tipNDelay' title='" + language.button.strikethrough + "' onclick='mdeditorButtonStrikethrough(\"" + elementName + "\");'><i class='fa fa-strikethrough'></i></button></div><div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_olist' type='button' class='btn btn-default tipNDelay' title='" + language.button.olist + "' onclick='mdeditorButtonOList(\"" + elementName + "\");'><i class='fa fa-list-ol'></i></button><button id='MDEditor_" + elementName + "_buttons_button_ulist' type='button' class='btn btn-default tipNDelay' title='" + language.button.ulist + "' onclick='mdeditorButtonUList(\"" + elementName + "\");'><i class='fa fa-list-ul'></i></button></div><div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_hyperlink' type='button' class='btn btn-default tipNDelay' title='" + language.button.hyperlink + "' onclick='mdeditorButtonHyperlink(\"" + elementName + "\");'><i class='fa fa-chain'></i></button><button id='MDEditor_" + elementName + "_buttons_button_unlink' type='button' class='btn btn-default tipNDelay' title='" + language.button.unlink + "' onclick='mdeditorButtonUnlink(\"" + elementName + "\");'><i class='fa fa-unlink'></i></button><button id='MDEditor_" + elementName + "_buttons_button_image' type='button' class='btn btn-default tipNDelay' title='" + language.button.image + "' onclick='mdeditorButtonImage(\"" + elementName + "\");'><i class='fa fa-picture-o'></i></button></div>" + settingsHelpIconPreview + "</div></div><div id='MDEditor_" + elementName + "_body' class='MDEditor_body'><div id='MDEditor_" + elementName + "_body_edit'><textarea id='MDEditor_" + elementName + "_body_edit_textarea' class='MDEditor_body_edit_textarea' name='" + elementName + "' style='height: " + settings.height + ";' onclick='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' onchange='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' onkeyup='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' " + settingsWordWrap + ">" + value + "</textarea></div><div id='MDEditor_" + elementName + "_body_actioncontainer' class='MDEditor_body_actioncontainer'><div><div><a onclick='mdeditorActioncontainerCancel(\"" + elementName + "\");' class='tipW' title='" + language.tooltip.close + "'><i class='fa fa-times'></i></a></div><div><div id='MDEditor_" + elementName + "_body_actioncontainer_content' class='MDEditor_body_actioncontainer_content'></div></div></div></div><div id='MDEditor_" + elementName + "_body_optioncontainer' class='MDEditor_body_optioncontainer'><div><div><div id='MDEditor_" + elementName + "_body_optioncontainer_content' class='MDEditor_body_optioncontainer_content'></div></div><div><div id='MDEditor_" + elementName + "_body_optioncontainer_buttons' class='MDEditor_body_optioncontainer_buttons'><button type='button' class='btn btn-default' onclick='mdeditorOptioncontainerCancel(\"" + elementName + "\");'>" + language.button.frame.cancel + "</button> <button type='button' class='btn btn-primary' onclick='mdeditorOptioncontainerInsertElement(\"" + elementName + "\");'>" + language.button.frame.insert + "</button></div></div></div></div></div></div><div id='MDEditor_" + elementName + "_footer' class='MDEditor_footer'>" + settingsWordCounter + "<p style='display: inline; float: right;'>© " + date.getFullYear() + " <a onclick='mdeditorButtonCopyright(\"" + elementName + "\")'>Andre Sieverding</a></p></div><div id='MDEditor_" + elementName + "_jsarea'>" + settingsIncludeTipsy + "<script type='text/javascript' language='javascript' src='" + mdeditor.url + "core/tooltips.js'></script><script type='text/javascript' language='javascript' src='" + mdeditor.url + "core/textrange.js'></script></div></div>";
+	EditorHTMLCode += "<div id='MDEditor_" + elementName + "' class='MDEditor' style='width: " + settings.width + ";'><textarea id='MDEditor_" + elementName + "_hiddenarea' style='display: none !important;'></textarea><div id='MDEditor_" + elementName + "_buttons' class='MDEditor_buttons'>" + settingsSpecialBar + "<div id='MDEditor_" + elementName + "_buttons_toolbar_basic' class='btn-toolbar'><div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_bold' type='button' class='btn btn-default tipNDelay' title='" + language.button.bold + "' onclick='mdeditorButtonBold(\"" + elementName + "\");'><i class='fa fa-bold'></i></button><button id='MDEditor_" + elementName + "_buttons_button_italic' type='button' class='btn btn-default tipNDelay' title='" + language.button.italic + "' onclick='mdeditorButtonItalic(\"" + elementName + "\");'><i class='fa fa-italic'></i></button><button id='MDEditor_" + elementName + "_buttons_button_underline' type='button' class='btn btn-default tipNDelay' title='" + language.button.underline + "' onclick='mdeditorButtonUnderline(\"" + elementName + "\");'><i class='fa fa-underline'></i></button><button id='MDEditor_" + elementName + "_buttons_button_strikethrough' type='button' class='btn btn-default tipNDelay' title='" + language.button.strikethrough + "' onclick='mdeditorButtonStrikethrough(\"" + elementName + "\");'><i class='fa fa-strikethrough'></i></button></div><div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_olist' type='button' class='btn btn-default tipNDelay' title='" + language.button.olist + "' onclick='mdeditorButtonOList(\"" + elementName + "\");'><i class='fa fa-list-ol'></i></button><button id='MDEditor_" + elementName + "_buttons_button_ulist' type='button' class='btn btn-default tipNDelay' title='" + language.button.ulist + "' onclick='mdeditorButtonUList(\"" + elementName + "\");'><i class='fa fa-list-ul'></i></button></div><div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_hyperlink' type='button' class='btn btn-default tipNDelay' title='" + language.button.hyperlink + "' onclick='mdeditorButtonHyperlink(\"" + elementName + "\");'><i class='fa fa-chain'></i></button><button id='MDEditor_" + elementName + "_buttons_button_unlink' type='button' class='btn btn-default tipNDelay' title='" + language.button.unlink + "' onclick='mdeditorButtonUnlink(\"" + elementName + "\");'><i class='fa fa-unlink'></i></button><button id='MDEditor_" + elementName + "_buttons_button_image' type='button' class='btn btn-default tipNDelay' title='" + language.button.image + "' onclick='mdeditorButtonImage(\"" + elementName + "\");'><i class='fa fa-picture-o'></i></button></div>" + settingsHelpIconPreview + "</div></div><div id='MDEditor_" + elementName + "_body' class='MDEditor_body'><div id='MDEditor_" + elementName + "_body_edit'><textarea id='MDEditor_" + elementName + "_body_edit_textarea' class='MDEditor_body_edit_textarea' name='" + elementName + "' style='height: " + settings.height + ";' onclick='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' onchange='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' onkeyup='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' " + settingsWordWrap + ">" + value + "</textarea></div><div id='MDEditor_" + elementName + "_body_actioncontainer' class='MDEditor_body_actioncontainer'><div><div><a onclick='mdeditorActioncontainerCancel(\"" + elementName + "\");' class='tipW' title='" + language.tooltip.close + "'><i class='fa fa-times'></i></a></div><div><div id='MDEditor_" + elementName + "_body_actioncontainer_content' class='MDEditor_body_actioncontainer_content'></div></div></div></div><div id='MDEditor_" + elementName + "_body_optioncontainer' class='MDEditor_body_optioncontainer'><div><div><div id='MDEditor_" + elementName + "_body_optioncontainer_content' class='MDEditor_body_optioncontainer_content'></div></div><div><div id='MDEditor_" + elementName + "_body_optioncontainer_buttons' class='MDEditor_body_optioncontainer_buttons'><button type='button' class='btn btn-default' onclick='mdeditorOptioncontainerCancel(\"" + elementName + "\");'>" + language.button.frame.cancel + "</button> <button type='button' class='btn btn-primary' onclick='mdeditorOptioncontainerInsertElement(\"" + elementName + "\");'>" + language.button.frame.insert + "</button></div></div></div></div></div></div><div id='MDEditor_" + elementName + "_footer' class='MDEditor_footer'>" + settingsWordCounter + "<p style='display: inline; float: right;'>© " + date.getFullYear() + " <a onclick='mdeditorButtonCopyright(\"" + elementName + "\")'>Andre Sieverding</a></p></div><div id='MDEditor_" + elementName + "_jsarea'>" + settingsIncludeTipsy + "<script type='text/javascript' language='javascript' src='" + mdeditor.url + "core/tooltips.js'></script><script type='text/javascript' language='javascript' src='" + mdeditor.url + "core/textrange.js'></script><script type='text/javascript' language='javascript' src='" + mdeditor.url + "core/marked.js'></script></div></div>";
 	EditorHTMLCode += "<!-- MD Editor end -->";
 
 	$(this).replaceWith(EditorHTMLCode);
