@@ -1,0 +1,44 @@
+{
+	"button": {
+		"save": "Speichern",
+		"reset": "Alles zurücksetzen",
+		"cancel": "Abbrechen",
+		"table": "Tabelle",
+		"quotation": "Zitat",
+		"anchor": "Anker",
+		"hr": "Horizontale Linie",
+		"youtube": "YouTube Video",
+		"code": "Code",
+		"mail": "E-Mail Adresse",
+		"phone": "Telefonnummer",
+		"icons": "Symbole",
+		"attachment": "Anhang",
+		"bold": "Fett",
+		"italic": "Kursiv",
+		"underline": "Unterstrichen",
+		"strikethrough": "Durchgestrichen",
+		"olist": "Nummerierte Liste",
+		"ulist": "Unnummerierte Liste",
+		"hyperlink": "Hyperlink",
+		"unlink": "Hyperlink entfernen",
+		"image": "Bild",
+		"preview": "Vorschau",
+		"help": "Hilfe",
+		"frame": {
+			"cancel": "Abbrechen",
+			"insert": "Einfügen"
+		}
+	},
+	"label": {
+		"wordCounter": "Wörter"
+	},
+	"message": {
+		"preview": {
+			"empty": "Sie haben noch nichts geschrieben!"
+		},
+		"error": "404 - Bitte prüfen Sie ihre Internet Verbindung!"
+	},
+	"tooltip": {
+		"close": "Schließen"
+	}
+}
