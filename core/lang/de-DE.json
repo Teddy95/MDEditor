@@ -40,5 +40,35 @@
 	},
 	"tooltip": {
 		"close": "Schließen"
+	},
+	"source": {
+		"placeholder": {
+			"table": {},
+			"anchor": {},
+			"youtube": {},
+			"mail": {},
+			"phone": {},
+			"hyperlink": {
+				"href": "Link url...",
+				"text": "Link text..."
+			},
+			"image": {
+				"src": "Image url...",
+				"alt": "Alternative text..."
+			}
+		},
+		"label": {
+			"table": {},
+			"anchor": {},
+			"youtube": {},
+			"mail": {},
+			"phone": {},
+			"hyperlink": {
+				"title": "Insert Hyperlink"
+			},
+			"image": {
+				"title": "Insert Image"
+			}
+		}
 	}
 }

@@ -40,5 +40,39 @@
 	},
 	"tooltip": {
 		"close": "Close"
+	},
+	"source": {
+		"placeholder": {
+			"table": {},
+			"anchor": {},
+			"youtube": {
+				"id": "YouTube Video ID..."
+			},
+			"mail": {},
+			"phone": {},
+			"hyperlink": {
+				"href": "Link url...",
+				"text": "Link text..."
+			},
+			"image": {
+				"src": "Image url...",
+				"alt": "Alternative text..."
+			}
+		},
+		"label": {
+			"table": {},
+			"anchor": {},
+			"youtube": {
+				"title": "Insert YouTube Video"
+			},
+			"mail": {},
+			"phone": {},
+			"hyperlink": {
+				"title": "Insert Hyperlink"
+			},
+			"image": {
+				"title": "Insert Image"
+			}
+		}
 	}
 }
