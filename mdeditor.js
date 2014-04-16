@@ -155,6 +155,25 @@ function mdeditorButtonAttachment (elementName) {
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
 	});
+
+	var language;
+	language = mdeditor.lang;
+
+	$.ajax({
+		type: 'GET',
+		url: mdeditor.url + 'core/source/attachment.php',
+		data: 'returnData',
+		success: function (returnData) {
+			$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
+				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html(returnData).fadeIn(80);
+			});
+		},
+		error: function () {
+			$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
+				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+			});
+		}
+	});
 }
 
 function mdeditorButtonBold (elementName) {
