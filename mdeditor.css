@@ -131,7 +131,7 @@
 	cursor: pointer;
 }
 
-.MDEditor_body_actioncontainer_content_preview, .MDEditor_body_actioncontainer_content_error, .MDEditor_body_actioncontainer_content_copyright {
+.MDEditor_body_actioncontainer_content_preview, .MDEditor_body_actioncontainer_content_error, .MDEditor_body_actioncontainer_content_copyright, .MDEditor_body_actioncontainer_content_attachment {
 	text-align: left !important;
 	width: 93% !important;
 	margin: 0 auto;
@@ -139,6 +139,26 @@
 
 .MDEditor_ajaxloader {
 	margin: 25px;
+}
+
+.MDEditor_attachment_image {
+	display: inline;
+	border: 2px solid #f5f5f5;
+	margin-left: 5px;
+	width: 120px;
+	transition: all 0.2s;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	-o-transition: all 0.2s;
+}
+
+.MDEditor_attachment_image:hover {
+	display: inline;
+	border: 2px solid #ff9500;
+	margin-left: 5px;
+	width: 120px;
+	cursor: pointer;
 }
 
 /* Tipsy */
