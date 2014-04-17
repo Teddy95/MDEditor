@@ -36,38 +36,57 @@
 		"preview": {
 			"empty": "Sie haben noch nichts geschrieben!"
 		},
+		"attachment": {
+			"error": "Die hochzuladende Datei ist zu groß!"
+		},
 		"error": "404 - Bitte prüfen Sie ihre Internet Verbindung!"
 	},
 	"tooltip": {
-		"close": "Schließen"
+		"close": "Schließen",
+		"insert": "Klicken zum Einfügen von",
+		"sethyperlink": "Klicken zum Erstellen einer Verlinkung zu"
 	},
 	"source": {
 		"placeholder": {
 			"table": {},
 			"anchor": {},
-			"youtube": {},
+			"youtube": {
+				"id": "YouTube Video ID..."
+			},
 			"mail": {},
 			"phone": {},
 			"hyperlink": {
-				"href": "Link url...",
+				"href": "Link URL...",
 				"text": "Link text..."
 			},
 			"image": {
-				"src": "Image url...",
-				"alt": "Alternative text..."
+				"src": "Bild URL...",
+				"alt": "Alternativer text..."
 			}
 		},
 		"label": {
 			"table": {},
 			"anchor": {},
-			"youtube": {},
+			"youtube": {
+				"title": "YouTube Video einfügen"
+			},
 			"mail": {},
 			"phone": {},
 			"hyperlink": {
-				"title": "Insert Hyperlink"
+				"title": "Hyperlink einfügen"
 			},
 			"image": {
-				"title": "Insert Image"
+				"title": "Bild einfügen"
+			},
+			"attachment": {
+				"title": "Anhang",
+				"fileupload": "Datei hochladen",
+				"empty": "Zur Zeit sind keine Dateien vorhanden!",
+				"deleteall": "Alle Dateien löschen",
+				"images": "Bilder",
+				"audio": "Audio Dateien",
+				"videos": "Videos",
+				"other": "Weitere Dateien"
 			}
 		}
 	}
