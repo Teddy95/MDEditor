@@ -30,4 +30,10 @@
 			$('#MDEditor_' + elementName + '_source_image_input_src').css('border', '1px solid #b10000');
 		}
 	});
+	
+	$(':submit').off();
+	$(':submit').click(function () {
+		$('#MDEditor_' + elementName + '_body_optioncontainer_buttons_insert').click();
+		return false;
+	});
 </script>
