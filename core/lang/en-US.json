@@ -48,13 +48,22 @@
 	},
 	"source": {
 		"placeholder": {
-			"table": {},
-			"anchor": {},
+			"table": {
+				"rows": "Number of rows...",
+				"columns": "Number of columns..."
+			},
+			"anchor": {
+				"name": "Anchor name..."
+			},
 			"youtube": {
 				"id": "YouTube Video ID..."
 			},
-			"mail": {},
-			"phone": {},
+			"mail": {
+				"mail": "E-Mail address..."
+			},
+			"phone": {
+				"number": "Phone number or Skype name..."
+			},
 			"hyperlink": {
 				"href": "Link url...",
 				"text": "Link text..."
@@ -65,13 +74,22 @@
 			}
 		},
 		"label": {
-			"table": {},
-			"anchor": {},
+			"table": {
+				"title": "Insert Table"
+			},
+			"anchor": {
+				"title": "Insert Anchor",
+				"reference": "Link to anchor"
+			},
 			"youtube": {
 				"title": "Insert YouTube Video"
 			},
-			"mail": {},
-			"phone": {},
+			"mail": {
+				"title": "Insert E-Mail Address"
+			},
+			"phone": {
+				"title": "Insert Phone Number"
+			},
 			"hyperlink": {
 				"title": "Insert Hyperlink"
 			},
