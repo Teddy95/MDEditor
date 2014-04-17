@@ -142,10 +142,11 @@
 }
 
 .MDEditor_attachment_image {
-	display: inline;
+	display: inline-block;
 	border: 2px solid #f5f5f5;
 	margin-left: 5px;
-	width: 120px;
+	width: 115px;
+	max-height: 120px;
 	transition: all 0.2s;
 	-webkit-transition: all 0.2s;
 	-moz-transition: all 0.2s;
@@ -153,12 +154,35 @@
 	-o-transition: all 0.2s;
 }
 
-.MDEditor_attachment_image:hover {
-	display: inline;
-	border: 2px solid #ff9500;
+.MDEditor_attachment_placeholder {
+	display: inline-block;
+	border: 2px solid #f5f5f5;
+	overflow: hidden;
 	margin-left: 5px;
-	width: 120px;
+	width: 80px !important;
+	height: 80px !important;
+	background-color: #f9f9f9;
+	text-align: center;
+	transition: all 0.2s;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	-o-transition: all 0.2s;
+}
+
+.MDEditor_attachment_image:hover, .MDEditor_attachment_placeholder:hover {
+	border: 2px solid #ff9500;
 	cursor: pointer;
+}
+
+.MDEditor_attachment_placeholder p {
+	color: #666666;
+}
+
+.MDEditor_attachment_placeholder i {
+	color: #cccccc;
+	font-size: 30px;
+	margin-top: 10px;
 }
 
 /* Tipsy */
@@ -188,7 +212,7 @@
   
 /* Uncomment for shadow */
 /*.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }*/
-  
+
 .tipsy-arrow {
 	position: absolute;
 	width: 0; height: 0;
