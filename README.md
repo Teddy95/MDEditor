@@ -35,3 +35,5 @@ $.("#mdeditor").mdeditor({
 	theme: false // choose a theme -> false = no theme
 });
 ```
+
+> For attachment you need [php](https://github.com/php/php-src) and the [json extension for php](http://www.php.net/manual/de/book.json.php)!
