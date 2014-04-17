@@ -70,6 +70,25 @@ function mdeditorButtonTable (elementName) {
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top');
 	});
+
+	var language;
+	language = mdeditor.lang;
+
+	$.ajax({
+		type: 'GET',
+		url: mdeditor.url + 'core/source/table.html',
+		data: 'returnData',
+		success: function (returnData) {
+			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html(returnData).fadeIn(80);
+			});
+		},
+		error: function () {
+			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+			});
+		}
+	});
 }
 
 function mdeditorButtonQuotation (elementName) {
@@ -82,6 +101,25 @@ function mdeditorButtonAnchor (elementName) {
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeIn(200);
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top');
+	});
+
+	var language;
+	language = mdeditor.lang;
+
+	$.ajax({
+		type: 'GET',
+		url: mdeditor.url + 'core/source/anchor.html',
+		data: 'returnData',
+		success: function (returnData) {
+			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html(returnData).fadeIn(80);
+			});
+		},
+		error: function () {
+			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+			});
+		}
 	});
 }
 
@@ -133,6 +171,25 @@ function mdeditorButtonMail (elementName) {
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top');
 	});
+
+	var language;
+	language = mdeditor.lang;
+
+	$.ajax({
+		type: 'GET',
+		url: mdeditor.url + 'core/source/mail.html',
+		data: 'returnData',
+		success: function (returnData) {
+			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html(returnData).fadeIn(80);
+			});
+		},
+		error: function () {
+			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+			});
+		}
+	});
 }
 
 function mdeditorButtonPhone (elementName) {
@@ -140,6 +197,25 @@ function mdeditorButtonPhone (elementName) {
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeIn(200);
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top');
+	});
+
+	var language;
+	language = mdeditor.lang;
+
+	$.ajax({
+		type: 'GET',
+		url: mdeditor.url + 'core/source/phone.html',
+		data: 'returnData',
+		success: function (returnData) {
+			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html(returnData).fadeIn(80);
+			});
+		},
+		error: function () {
+			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+			});
+		}
 	});
 }
 
@@ -156,6 +232,10 @@ function mdeditorButtonAttachment (elementName) {
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeIn(200);
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
+		$(':submit').off();
+		$(':submit').click(function () {
+			return true;
+		});
 	});
 
 	var language;
@@ -341,6 +421,10 @@ function mdeditorButtonPreview (elementName) {
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeIn(200);
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
+		$(':submit').off();
+		$(':submit').click(function () {
+			return true;
+		});
 	});
 
 	var editorValue;
@@ -352,7 +436,7 @@ function mdeditorButtonPreview (elementName) {
 	}
 
 	$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
-		$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html("<div class='MDEditor_body_actioncontainer_content_preview'>" + marked(editorValue) + "</div>").fadeIn(80);
+		$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html("<div class='MDEditor_body_actioncontainer_content_preview'>" + marked(editorValue).replace('<table>', '<table class="table table-striped table-bordered">') + "</div>").fadeIn(80);
 	});
 }
 
@@ -361,6 +445,10 @@ function mdeditorButtonHelp (elementName) {
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeIn(200);
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
+		$(':submit').off();
+		$(':submit').click(function () {
+			return true;
+		});
 	});
 
 	var language;
@@ -388,6 +476,10 @@ function mdeditorButtonCopyright (elementName) {
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeIn(200);
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
+		$(':submit').off();
+		$(':submit').click(function () {
+			return true;
+		});
 	});
 
 	var language;
@@ -414,6 +506,10 @@ function mdeditorButtonCopyright (elementName) {
 function mdeditorOptioncontainerCancel (elementName) {
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
+		$(':submit').off();
+		$(':submit').click(function () {
+			return true;
+		});
 	});
 }
 
@@ -426,6 +522,10 @@ function mdeditorOptioncontainerInsertElement (elementName) {
 
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
+		$(':submit').off();
+		$(':submit').click(function () {
+			return true;
+		});
 	});
 }
 
