@@ -55,16 +55,18 @@ $files = glob('../../attachment/*.*');
 	<?php	
 	if (count($files) > 0) {
 		$i = 0;
+		$j = 0;
 
 		foreach ($files as $file) {
 			if (substr($file, -4, 4) == '.jpg' || substr($file, -4, 4) == '.png' || substr($file, -4, 4) == '.gif') {
 				$i++;
+				$j++;
 
 				if ($i == 1) {
 					echo "<p><i data-element='MDEditor_%ELEMENTNAME%_source_attachment_content_images'></i><i>:</i></p>";
 				}
 
-				echo "<img class='MDEditor_attachment_image tipNDelay' src='" . str_replace('../../', '', $file) . "' alt='' data-mdeditor-action='insertFile' data-insertType='image' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['insert'] . "<br /><i class=\"fa fa-picture-o\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>' />";
+				echo "<img id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_image tipNDelay' src='" . str_replace('../../', '', $file) . "' alt='' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='image' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['insert'] . "<br /><i class=\"fa fa-picture-o\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>' />";
 			}
 		}
 
@@ -73,6 +75,7 @@ $files = glob('../../attachment/*.*');
 		foreach ($files as $file) {
 			if (substr($file, -4, 4) == '.mp3' || substr($file, -4, 4) == '.wma' || substr($file, -4, 4) == '.wav') {
 				$i++;
+				$j++;
 
 				if ($i == 1) {
 					echo "<p><i data-element='MDEditor_%ELEMENTNAME%_source_attachment_content_audio'></i><i>:</i></p>";
@@ -80,7 +83,7 @@ $files = glob('../../attachment/*.*');
 
 				$filename = explode('.', basename($file));
 				$filename = '.' . $filename[count($filename)-1];
-				echo "<div class='MDEditor_attachment_placeholder tipN' data-mdeditor-action='insertFile' data-insertType='audio' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-music\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-music'></i></p><p>" . $filename . "</p></div>";
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-music\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-music'></i></p><p>" . $filename . "</p></div>";
 			}
 		}
 
@@ -89,6 +92,7 @@ $files = glob('../../attachment/*.*');
 		foreach ($files as $file) {
 			if (substr($file, -4, 4) == '.mp4' || substr($file, -4, 4) == '.avi' || substr($file, -4, 4) == '.3gp' || substr($file, -4, 4) == '.mov') {
 				$i++;
+				$j++;
 
 				if ($i == 1) {
 					echo "<p><i data-element='MDEditor_%ELEMENTNAME%_source_attachment_content_videos'></i><i>:</i></p>";
@@ -96,7 +100,7 @@ $files = glob('../../attachment/*.*');
 
 				$filename = explode('.', basename($file));
 				$filename = '.' . $filename[count($filename)-1];
-				echo "<div class='MDEditor_attachment_placeholder tipN' data-mdeditor-action='insertFile' data-insertType='video' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-video-camera\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-video-camera'></i></p><p>" . $filename . "</p></div>";
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-video-camera\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-video-camera'></i></p><p>" . $filename . "</p></div>";
 			}
 		}
 
@@ -105,6 +109,7 @@ $files = glob('../../attachment/*.*');
 		foreach ($files as $file) {
 			if (substr($file, -4, 4) != '.jpg' && substr($file, -4, 4) != '.png' && substr($file, -4, 4) != '.gif' && substr($file, -4, 4) != '.mp3' && substr($file, -4, 4) != '.wma' && substr($file, -4, 4) != '.wav' && substr($file, -4, 4) != '.mp4' && substr($file, -4, 4) != '.avi' && substr($file, -4, 4) != '.3gp' && substr($file, -4, 4) != '.mov') {
 				$i++;
+				$j++;
 
 				if ($i == 1) {
 					echo "<p><i data-element='MDEditor_%ELEMENTNAME%_source_attachment_content_other'></i><i>:</i></p>";
@@ -112,7 +117,7 @@ $files = glob('../../attachment/*.*');
 
 				$filename = explode('.', basename($file));
 				$filename = '.' . $filename[count($filename)-1];
-				echo "<div class='MDEditor_attachment_placeholder tipN' data-mdeditor-action='insertFile' data-insertType='other' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-file\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file'></i></p><p>" . $filename . "</p></div>";
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-file\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file'></i></p><p>" . $filename . "</p></div>";
 			}
 		}
 	} else {
@@ -155,7 +160,7 @@ $files = glob('../../attachment/*.*');
 	elementName = mdeditor.elementName;
 	language = mdeditor.lang;
 
-	function reload (action, source) {
+	function mdeditorReload (action, source) {
 		if (action == 'delete') {
 			$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'middle').html("<img class='MDEditor_ajaxloader' src='" + mdeditor.url + "img/ajax.gif' alt='AJAX load' />");
 			$('#MDEditor_' + elementName + '_body_actioncontainer').fadeIn(200);
@@ -230,6 +235,30 @@ $files = glob('../../attachment/*.*');
 		}
 	}
 
+	function mdeditorInsert (number) {
+		if ($('#MDEditor_attachment_' + number).attr('data-insertType') == 'image') {
+			$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "![" + $('#MDEditor_attachment_' + number).attr('data-file').replace(mdeditor.url + 'attachment/', '') + "](" + $('#MDEditor_attachment_' + number).attr('data-file') + ")");
+			$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
+
+			$('.tipsy').css('display', 'none');
+
+			$('#MDEditor_' + elementName + '_body_actioncontainer').fadeOut(200, function () {
+				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top');
+			});
+		}
+
+		if ($('#MDEditor_attachment_' + number).attr('data-insertType') == 'link') {
+			$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "[" + $('#MDEditor_attachment_' + number).attr('data-file').replace(mdeditor.url + 'attachment/', '') + "](" + $('#MDEditor_attachment_' + number).attr('data-file') + ")");
+			$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
+
+			$('.tipsy').css('display', 'none');
+
+			$('#MDEditor_' + elementName + '_body_actioncontainer').fadeOut(200, function () {
+				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top');
+			});
+		}
+	}
+
 	$('#MDEditor_' + elementName + '_source_attachment_headline').html(language.source.label.attachment.title);
 	$('#MDEditor_' + elementName + '_source_attachment_fileupload').html(language.source.label.attachment.fileupload);
 	$('#MDEditor_' + elementName + '_source_attachment_content_images').html(language.source.label.attachment.images);
@@ -241,9 +270,9 @@ $files = glob('../../attachment/*.*');
 
 	$('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_input').off();
 	$('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_input:file').change(function () {
-		reload('upload', this);
+		mdeditorReload('upload', this);
 	});
 	$('#MDEditor_' + mdeditor.elementName + '_source_attachment_content_button_deleteall').click(function () {
-		reload('delete');
+		mdeditorReload('delete');
 	});
 </script>
