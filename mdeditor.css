@@ -309,3 +309,9 @@
 	border-top-color: transparent;
 	border-bottom-color: transparent;
 }
+
+/* Bootstrap modification */
+
+.form-control:focus {
+	border-color: #66AFE9 !important;
+}
