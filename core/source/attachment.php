@@ -202,7 +202,7 @@ $files = glob('../../attachment/*.*');
 			language = mdeditor.lang;
 
 			if (filesize > mdeditor.maxUpload) {
-				$('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_error').html('<div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.attachment.error + '</div>');
+				$('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_error').html('<div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.attachment.error + '</div>').fadeIn();
 				return;
 			}
 
