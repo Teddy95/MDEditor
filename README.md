@@ -32,7 +32,8 @@ $.("#mdeditor").mdeditor({
 	wordCounter: true, // includes word counter
 	includeTipsy: true, // includes tipsy, if you haven't already done this
 	wordWrap: true, // wordwrap in textarea
-	theme: false // choose a theme -> false = no theme
+	theme: false, // choose a theme -> false = no theme
+	maxUpload: 2000000 // 2MB
 });
 ```
 
