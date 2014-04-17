@@ -36,10 +36,15 @@
 		"preview": {
 			"empty": "You haven't written anything yet!"
 		},
+		"attachment": {
+			"error": "The selected file is to large!"
+		},
 		"error": "404 - Please check your internet connection!"
 	},
 	"tooltip": {
-		"close": "Close"
+		"close": "Close",
+		"insert": "Click to insert",
+		"sethyperlink": "Click to create a hyperlink to"
 	},
 	"source": {
 		"placeholder": {
@@ -72,6 +77,16 @@
 			},
 			"image": {
 				"title": "Insert Image"
+			},
+			"attachment": {
+				"title": "Attachment",
+				"fileupload": "Upload file",
+				"empty": "Currently there are no files!",
+				"deleteall": "Delete all files",
+				"images": "Images",
+				"audio": "Audio files",
+				"videos": "Videos",
+				"other": "Other files"
 			}
 		}
 	}
