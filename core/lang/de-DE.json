@@ -48,13 +48,22 @@
 	},
 	"source": {
 		"placeholder": {
-			"table": {},
-			"anchor": {},
+			"table": {
+				"rows": "Anzahl der Reihen...",
+				"columns": "Anzahl der Spalten..."
+			},
+			"anchor": {
+				"name": "Anker Name..."
+			},
 			"youtube": {
 				"id": "YouTube Video ID..."
 			},
-			"mail": {},
-			"phone": {},
+			"mail": {
+				"mail": "E-Mail Adresse..."
+			},
+			"phone": {
+				"number": "Telefonnummer oder Skype Name..."
+			},
 			"hyperlink": {
 				"href": "Link URL...",
 				"text": "Link text..."
@@ -65,13 +74,22 @@
 			}
 		},
 		"label": {
-			"table": {},
-			"anchor": {},
+			"table": {
+				"title": "Tabelle einfügen"
+			},
+			"anchor": {
+				"title": "Anker einfügen",
+				"reference": "Link zum Anker"
+			},
 			"youtube": {
 				"title": "YouTube Video einfügen"
 			},
-			"mail": {},
-			"phone": {},
+			"mail": {
+				"title": "E-Mail Adresse einfügen"
+			},
+			"phone": {
+				"title": "Telefonnummer einfügen"
+			},
 			"hyperlink": {
 				"title": "Hyperlink einfügen"
 			},
