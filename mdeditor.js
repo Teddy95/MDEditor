@@ -36,7 +36,9 @@ mdebasename = mdepath.split('/').reverse()[0];
 var mdeditor = {
 	url: mdepath.replace(mdebasename, ''),
 	lang: null,
+	language: null,
 	elementName: null,
+	maxUpload: null,
 	globalClick: true
 };
 
@@ -161,7 +163,7 @@ function mdeditorButtonAttachment (elementName) {
 
 	$.ajax({
 		type: 'GET',
-		url: mdeditor.url + 'core/source/attachment.php',
+		url: mdeditor.url + 'core/source/attachment.php?path=' + mdeditor.url + '&lang=' + mdeditor.language,
 		data: 'returnData',
 		success: function (returnData) {
 			$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
@@ -481,7 +483,7 @@ $.fn.mdeditor = function (settings) {
 	}
 
 	if (typeof settings.helpIcon == 'undefined') {
-		settings.helpIcon = true;
+		settings.helpIcon = false;
 	}
 
 	if (typeof settings.attachment == 'undefined') {
@@ -507,6 +509,13 @@ $.fn.mdeditor = function (settings) {
 	if (typeof settings.theme == 'undefined') {
 		settings.theme = false;
 	}
+
+	if (typeof settings.maxUpload == 'undefined') {
+		settings.maxUpload = 2000000;
+	}
+
+	mdeditor.maxUpload = settings.maxUpload;
+	mdeditor.language = settings.language;
 
 	if (settings.theme !== false) {
 		$('head').html($('head').html() + '<!-- MDEditor theme ' + settings.theme + ' --><link rel="stylesheet" type="text/css" href="' + mdeditor.url + 'themes/' + settings.theme + '/mdtheme.css" /><!-- MDEditor theme end -->');
