@@ -2,7 +2,7 @@
 
 ![MDEditor Screenshot](http://i.imgur.com/AXKyN6X.png)
 
-## This is a public Pre-Alpha version of MDEditor
+## This is a public Alpha version of MDEditor
 
 ### Install Editor:
 
