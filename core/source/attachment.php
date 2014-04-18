@@ -142,8 +142,7 @@ $files = glob('../../attachment/*.*');
 		title: 'title',
 		trigger: 'hover',
 		html: true,
-		gravity: 's',
-		fade: true
+		gravity: 's'
 	});
 
 	$('.tipNDelay').tipsy({
