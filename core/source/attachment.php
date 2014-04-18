@@ -66,7 +66,7 @@ $files = glob('../../attachment/*.*');
 					echo "<p><i data-element='MDEditor_%ELEMENTNAME%_source_attachment_content_images'></i><i>:</i></p>";
 				}
 
-				echo "<img id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_image tipNDelay' src='" . str_replace('../../', '', $file) . "' alt='' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='image' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['insert'] . "<br /><i class=\"fa fa-picture-o\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>' />";
+				echo "<img id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_image tipNDelay' src='" . $_GET['path'] . str_replace('../../', '', $file) . "' alt='' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='image' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['insert'] . "<br /><i class=\"fa fa-picture-o\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>' />";
 			}
 		}
 
