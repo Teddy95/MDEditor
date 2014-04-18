@@ -17,6 +17,7 @@ $.("#mdeditor").mdeditor();
 With options:
 ```javascript
 $.("#mdeditor").mdeditor({
+	output: 'markdown', // choose between markdown and html
 	language: 'en-US', // language of editor
 	width: '100%', // width of editor
 	height: '250px', // height of textarea in the editor
