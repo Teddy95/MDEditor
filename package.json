@@ -1,0 +1,25 @@
+{
+	"name": "MDEditor",
+	"version": "0.1-beta",
+	"description": "Fast and lightweight markdown editor, written in JavaScript.",
+	"main": [
+		"mdeditor.js",
+		"mdeditor.css"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/Teddy95/MDEditor.git"
+	},
+	"keywords": [
+		"html",
+		"markdown",
+		"online",
+		"javascript",
+		"css",
+		"php",
+		"bootstrap"
+	],
+	"author": "Andre Sieverding",
+	"license": "MIT",
+	"readmeFilename": "README.md"
+}
