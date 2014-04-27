@@ -92,6 +92,9 @@ function mdeditorButtonTable (elementName) {
 }
 
 function mdeditorButtonQuotation (elementName) {
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+
 	$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "> " + $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text);
 	$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
 }
@@ -124,6 +127,9 @@ function mdeditorButtonAnchor (elementName) {
 }
 
 function mdeditorButtonHr (elementName) {
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+
 	$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "\r\n*****\r\n");
 	$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
 }
@@ -156,6 +162,9 @@ function mdeditorButtonYoutube (elementName) {
 }
 
 function mdeditorButtonCode (elementName) {
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+	
 	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == undefined || $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == '') {
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "``````");
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end-3, 0);
@@ -278,6 +287,9 @@ function mdeditorButtonAttachment (elementName) {
 }
 
 function mdeditorButtonBold (elementName) {
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+	
 	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == undefined || $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == '') {
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "____");
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end-2, 0);
@@ -288,6 +300,9 @@ function mdeditorButtonBold (elementName) {
 }
 
 function mdeditorButtonItalic (elementName) {
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+	
 	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == undefined || $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == '') {
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "**");
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end-1, 0);
@@ -298,6 +313,9 @@ function mdeditorButtonItalic (elementName) {
 }
 
 function mdeditorButtonUnderline (elementName) {
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+	
 	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == undefined || $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == '') {
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "<u></u>");
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end-4, 0);
@@ -308,6 +326,9 @@ function mdeditorButtonUnderline (elementName) {
 }
 
 function mdeditorButtonStrikethrough (elementName) {
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+	
 	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == undefined || $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == '') {
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "~~~~");
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end-2, 0);
@@ -318,6 +339,9 @@ function mdeditorButtonStrikethrough (elementName) {
 }
 
 function mdeditorButtonOList (elementName) {
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+	
 	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == undefined || $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == '') {
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "1. ");
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
@@ -345,6 +369,9 @@ function mdeditorButtonOList (elementName) {
 }
 
 function mdeditorButtonUList (elementName) {
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+	
 	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == undefined || $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == '') {
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "- ");
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
@@ -399,6 +426,9 @@ function mdeditorButtonHyperlink (elementName) {
 }
 
 function mdeditorButtonUnlink (elementName) {
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+	
 	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text != undefined && $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text != '') {
 		var value;
 		value = $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text;
@@ -806,6 +836,15 @@ $.fn.mdeditor = function (settings) {
 		if (settings.output == 'html') {
 			$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea').val()));
 		}
+	});
+
+	// Reset manipulation
+	$(':reset').off();
+	$(':reset').click(function () {
+		mdeditorOptioncontainerCancel(elementName);
+		mdeditorActioncontainerCancel(elementName);
+
+		return true;
 	});
 
 	// Submit manipulation
