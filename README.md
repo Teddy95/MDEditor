@@ -1,6 +1,6 @@
 # MDEditor
 
-![MDEditor Screenshot](http://i.imgur.com/AXKyN6X.png)
+![MDEditor Screenshot](http://i.imgur.com/EWYdPkX.png)
 
 ## This is a public Alpha version of MDEditor
 
