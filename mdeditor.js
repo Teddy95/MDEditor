@@ -838,7 +838,7 @@ $.fn.mdeditor = function (settings) {
 		}
 	});
 
-	// ESC manipularion
+	// ESC manipulation
 	$(document).keypress(function (e) {
 		if (e.keyCode == 27) {
 			mdeditorOptioncontainerCancel(elementName);
