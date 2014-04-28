@@ -2,7 +2,7 @@
 
 ![MDEditor Screenshot](http://i.imgur.com/EWYdPkX.png)
 
-## This is a public Alpha version of MDEditor
+## This is a beta version of MDEditor
 
 ### Install Editor:
 
@@ -26,7 +26,6 @@ $.("#mdeditor").mdeditor({
 	codeIcon: true, // includes button for code markup
 	mailIcon: true, // includes button for a mail hyperlink markup
 	phoneIcon: true, // includes button for a phone hyperlink markup
-	iconsIcon: true, // includes button for fontawesome icons
 	helpIcon: true, // includes help button
 	preview: true, // includes preview button
 	attachment: true, // includes attachment button
