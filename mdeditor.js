@@ -838,6 +838,16 @@ $.fn.mdeditor = function (settings) {
 		}
 	});
 
+	// ESC manipularion
+	$(document).keypress(function (e) {
+		if (e.keyCode == 27) {
+			mdeditorOptioncontainerCancel(elementName);
+			mdeditorActioncontainerCancel(elementName);
+		}
+
+		return true;
+	});
+
 	// Reset manipulation
 	$(':reset').off();
 	$(':reset').click(function () {
