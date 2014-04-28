@@ -6,6 +6,9 @@
 .MDEditor {
 	display: block;
 	min-width: 620px;
+	position: relative;
+	clear: both;
+	overflow: hidden;
 }
 
 .MDEditor_body {
