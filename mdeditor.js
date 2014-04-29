@@ -290,10 +290,10 @@ function mdeditorButtonUnderline (elementName) {
 	mdeditorActioncontainerCancel(elementName);
 	
 	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == undefined || $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == '') {
-		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "<u></u>");
-		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end-4, 0);
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "<span style=\"text-decoration: underline;\"></span>");
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end-7, 0);
 	} else {
-		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "<u>" + $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text + "</u>");
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "<span style=\"text-decoration: underline;\">" + $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text + "</span>");
 		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
 	}
 }
@@ -666,7 +666,7 @@ $.fn.mdeditor = function (settings) {
 	mdeditor.language = settings.language;
 
 	if (settings.theme !== false) {
-		$('head').html($('head').html() + '<!-- MDEditor theme ' + settings.theme + ' --><link rel="stylesheet" type="text/css" href="' + mdeditor.url + 'themes/' + settings.theme + '/mdtheme.css" /><!-- MDEditor theme end -->');
+		$('head').append('<!-- MDEditor theme ' + settings.theme + ' --><link rel="stylesheet" type="text/css" href="' + mdeditor.url + 'themes/' + settings.theme + '/mdtheme.css" /><!-- MDEditor theme end -->');
 	}
 
 	if (settings.wordWrap === true) {
