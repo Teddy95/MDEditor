@@ -560,32 +560,6 @@ function mdeditorActioncontainerCancel (elementName) {
 
 // Create the Editor
 $.fn.mdeditor = function (settings) {
-	// Check package.json
-	var packageFile;
-	function getPackageInfo () {
-		var returnVal;
-		$.ajax({
-			url: mdeditor.url + 'package.json',
-			type: 'POST',
-			dataType: 'json',
-			data: 'data',
-			async: false,
-			success: function (data) {
-				returnVal = data;
-			},
-			error: function () {
-				returnVal = false;
-			}
-		});
-		return returnVal;
-	}
-	packageFile = getPackageInfo();
-	mdeditor.packageInfo = packageFile;
-
-	if(packageFile === false) {
-		return false;
-	}
-
 	var elementName;
 	elementName = $(this).attr('name');
 	mdeditor.elementName = elementName;
