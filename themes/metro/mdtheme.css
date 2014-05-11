@@ -1,0 +1,31 @@
+/* Metro Theme for MDEditor */
+/* © 2014 Andre Sieverding */
+
+/* Basic stylesheets */
+.MDEditor .btn-toolbar {
+	overflow: hidden;
+}
+
+.MDEditor .MDEditor_body_edit_textarea {
+	font-family: arial;
+	margin: 0px;
+    color: #353535;
+}
+
+.MDEditor {
+	font-family: arial;
+    font-size: 14px;
+    color: #353535;
+}
+
+.MDEditor *, .MDEditor *:first-child, .MDEditor *:last-child {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.MDEditor .col-xs-5 {
+	position: relative;
+	padding: 0px 15px;
+	min-height: 1px;
+	width: 41.6667%;
+}
