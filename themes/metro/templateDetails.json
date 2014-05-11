@@ -1,0 +1,9 @@
+{
+	"name": "Metro Theme",
+	"version": "1",
+	"main": [
+		"mdtheme.css"
+	],
+	"author": "Andre Sieverding",
+	"license": "MIT"
+}
