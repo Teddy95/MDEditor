@@ -1,10 +1,14 @@
 # MDEditor
 
-![MDEditor Screenshot](http://i.imgur.com/EWYdPkX.png)
+![Image](http://i.imgur.com/EWYdPkX.png)
 
-## This is a beta version of MDEditor
+MDEditor is a simple Markdown editor.
 
-### Install Editor:
+- Write text in Markdown and look at it in a preview
+- Upload files and photos
+- Export text as Markdown or HTML
+
+### Installation
 
 HTML markup:
 ```html
@@ -38,3 +42,43 @@ $.("#mdeditor").mdeditor({
 ```
 
 > For attachment you need [php](https://github.com/php/php-src) and the [json extension for php](http://www.php.net/manual/de/book.json.php)!
+
+-------------
+
+### Markdown -> HTML
+
+MDEditor use [chjj/marked](https://github.com/chjj/marked) to transform Markdown into HTML.  
+[core/marked.js](https://github.com/Teddy95/MDEditor/blob/master/core/marked.js)
+
+-------------
+
+### Examples
+
+[examples/](https://github.com/Teddy95/MDEditor/tree/master/examples) - Directory with examples  
+[MDEDitor wiki - Examples](https://github.com/Teddy95/MDEditor/wiki/Examples)
+
+-------------
+
+### Documentaion
+
+[https://github.com/Teddy95/MDEditor/wiki](https://github.com/Teddy95/MDEditor/wiki)
+
+-------------
+
+### Download
+
+- [Releases on Github](https://github.com/Teddy95/MDEditor/releases)
+- **[Download latest version from Github](https://github.com/Teddy95/MDEditor/archive/v0.1-beta.zip)**
+- [Download master from Github](https://github.com/Teddy95/MDEditor/archive/master.zip)
+
+-------------
+
+### Contributors
+
+- [Teddy95](https://github.com/Teddy95)
+
+-------------
+
+### License
+
+The MIT License (MIT) - [View LICENSE.md](https://github.com/Teddy95/MDEditor/blob/master/LICENSE.md)
