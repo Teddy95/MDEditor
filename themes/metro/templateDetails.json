@@ -1,9 +1,6 @@
 {
-	"name": "Metro Theme",
+	"name": "Panther Theme",
 	"version": "1",
-	"main": [
-		"mdtheme.css"
-	],
 	"author": "Andre Sieverding",
-	"license": "MIT"
+	"license": "CC BY-NC-SA 3.0"
 }
