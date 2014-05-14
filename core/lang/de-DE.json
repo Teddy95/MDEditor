@@ -37,7 +37,10 @@
 			"empty": "Sie haben noch nichts geschrieben!"
 		},
 		"attachment": {
-			"error": "Die hochzuladende Datei ist zu groß!"
+			"error": {
+				"max": "Die hochzuladende Datei ist zu groß!",
+				"not": "Dieser Dateityp ist nicht erlaubt!"
+			}
 		},
 		"error": "404 - Bitte prüfen Sie ihre Internet Verbindung!"
 	},
