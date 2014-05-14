@@ -201,8 +201,20 @@ $files = glob('../../attachment/*.*');
 			language = mdeditor.lang;
 
 			if (filesize > mdeditor.maxUpload) {
-				$('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_error').html('<div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.attachment.error + '</div>').fadeIn();
+				$('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_error').html('<div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.attachment.error.max + '</div>').fadeIn();
 				return;
+			}
+
+			var filenameArray;
+			var fileExtension;
+			filenameArray = filename.split('.');
+			fileExtension = filenameArray[filenameArray.length-1];
+
+			for (var i = 0; i < mdeditor.notUpload.length; i++) {
+				if (fileExtension == mdeditor.notUpload[i]) {
+					$('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_error').html('<div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.attachment.error.not + '</div>').fadeIn();
+					return;
+				}
 			}
 
 			var formData = new FormData($('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_form')[0]);
