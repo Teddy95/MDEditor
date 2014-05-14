@@ -1,4 +1,4 @@
-/* Metro Theme for MDEditor */
+/* Panther Theme for MDEditor */
 /* © 2014 Andre Sieverding */
 
 /* Basic stylesheets */
@@ -28,4 +28,371 @@
 	padding: 0px 15px;
 	min-height: 1px;
 	width: 41.6667%;
+}
+
+.MDEditor_buttons, .MDEditor_footer {
+    background-color: #474a4c;
+    border-color: #262626;
+}
+
+.MDEditor_body_edit_textarea {
+    background-color: #6c6d6d;
+    border-color: #262626;
+    color: #ffffff !important;
+}
+
+/* Header */
+.MDEditor h1, .MDEditor h2, .MDEditor h4 {
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.MDEditor h1 {
+    font-size: 36px;
+    color: inherit;
+    margin: 20px 0px 10px 0px;
+}
+
+.MDEditor h2 {
+    font-size: 30px;
+    color: inherit;
+    margin: 20px 0px 10px 0px;
+}
+
+.MDEditor h4 {
+    font-size: 18px;
+    color: inherit;
+    margin: 10px 0px;
+}
+
+/* Typography */
+.MDEditor a, .MDEditor label {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.MDEditor a {
+    text-decoration: none;
+    color: #0066cf;
+}
+
+.MDEditor a:hover {
+    text-decoration: underline;
+    color: #0066cf;
+}
+
+.MDEditor cite, .MDEditor legend {
+    font-style: normal;
+    color: #999999;
+    font-size: 14px;
+    border-bottom: 1px dotted #cccccc;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+
+.MDEditor cite:hover {
+    font-style: normal;
+    color: #999999;
+    font-size: 14px;
+    border-bottom: 1px dotted #666666;
+    cursor: default;
+}
+
+.MDEditor legend {
+    margin: 10px 0;
+}
+
+.MDEditor fieldset {
+    border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -ms-border-radius: 3px 3px 3px 3px;
+    -o-border-radius: 3px 3px 3px 3px;
+    border: 1px solid rgb(204, 204, 204);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+}
+
+.MDEditor blockquote {
+    padding: 1px 15px;
+    color: #666666;
+    margin: 0px;
+    border-left: 3px solid #cccccc;
+}
+
+.MDEditor code, .MDEditor pre {
+    white-space: pre-wrap;
+    padding: 15px;
+    background-color: #f5f5f5;
+    color: #333333;
+    font-size: 13px;
+    border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -ms-border-radius: 3px 3px 3px 3px;
+    -o-border-radius: 3px 3px 3px 3px;
+}
+
+.MDEditor abbr {
+    border-bottom: 1px dotted #cccccc;
+    cursor: help;
+}
+
+.MDEditor small {
+    color: #999999;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+/* Horizontal rules */
+.MDEditor hr {
+    border: 0px solid transparent;
+    outline: medium none;
+    width: 100%;
+    height: 1px;
+    background-color: #cccccc;
+    margin: 20px 0px;
+}
+
+/* Forms */
+.MDEditor .form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555555;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+.MDEditor .form-control:focus {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.075) inset, 0px 0px 5px rgba(81, 167, 232, 0.5);
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.075) inset, 0px 0px 5px rgba(81, 167, 232, 0.5);
+    -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.075) inset, 0px 0px 5px rgba(81, 167, 232, 0.5);
+    -ms-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.075) inset, 0px 0px 5px rgba(81, 167, 232, 0.5);
+    -o-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.075) inset, 0px 0px 5px rgba(81, 167, 232, 0.5);
+    border-color: rgb(81, 167, 232);
+    color: rgb(51, 51, 51);
+    outline: medium none !important;
+}
+
+/* Attachment placeholders */
+.MDEditor .MDEditor_attachment_placeholder > p:first-child {
+    line-height: 0 !important;
+}
+
+.MDEditor .MDEditor_attachment_placeholder > p:first-child > i {
+    line-height: 0.5 !important;
+}
+
+/* Alerts */
+.MDEditor .alert {
+    position: relative;
+}
+
+.MDEditor .alert-info, .MDEditor .alert-danger {
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 14px;
+    white-space: normal;
+    margin-bottom: 20px;
+}
+
+.MDEditor .alert > .alert-info, .MDEditor .alert > .alert-danger {
+    padding: 10px 30px 10px 44px !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.MDEditor .alert-info {
+    background: rgb(216, 235, 248);
+    border: 1px solid rgb(151, 193, 218);
+    color: rgb(38, 76, 114) !important;
+}
+
+.MDEditor .alert-danger {
+    background: rgb(248, 216, 216);
+    border: 1px solid rgb(218, 151, 151);
+    color: rgb(156, 36, 0) !important;
+}
+
+.MDEditor .alert-info a {
+    color: rgba(38, 76, 114, 0.6) !important;
+    text-decoration: none !important;
+}
+
+.MDEditor .alert-danger a {
+    color: rgba(156, 36, 0, 0.6) !important;
+    text-decoration: none !important;
+}
+
+.MDEditor .alert-info a:hover {
+    color: rgba(38, 76, 114, 1) !important;
+    text-decoration: none !important;
+}
+
+.MDEditor .alert-danger a:hover {
+    color: rgba(156, 36, 0, 1) !important;
+    text-decoration: none !important;
+}
+
+/* Dropdownmenu */
+.MDEditor .dropdown-menu {
+    margin: 0px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #f5f5f5;
+}
+
+.MDEditor .dropdown-menu > li {
+    list-style-type: none;
+}
+
+.MDEditor .dropdown-menu > li > a {
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+}
+
+.MDEditor .dropdown-menu > li > a:hover {
+    text-decoration: none;
+    border-bottom: 1px dotted #0066cf;
+}
+
+/* Buttons & Toolbars */
+.MDEditor .btn, .MDEditor .btn-default {
+    font-size: 14px !important;
+	padding: 6px 9px !important;
+	font-family: Arial,Helvetica,sans-serif;
+    position: relative;
+    display: inline-block;
+    font-weight: normal;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #4b4b4b;
+    color: #ffffff;
+    border-radius: 0px 0px 0px 0px;
+    border: 1px solid #262626;
+    text-shadow: 0px -1px 0px #262626;
+}
+
+.MDEditor .btn:hover, .MDEditor .btn-default:hover {
+    background-color: #323232;
+    text-shadow: 0px -1px 0px #262626;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.MDEditor .btn:active, .MDEditor .btn-default:active {
+    background-color: #323232;
+    text-shadow: 0px -1px 0px #262626;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    cursor: pointer;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15) inset;
+}
+
+.MDEditor .btn-danger {
+    background-color: #d94f35;
+    text-shadow: 0px -1px 0px #b43b26;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.MDEditor .btn-danger:hover {
+    background-color: #b43b26;
+    text-shadow: 0px -1px 0px #b43b26;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.MDEditor .btn-primary {
+    color: rgb(255, 255, 255) !important;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25) !important;
+    background-color: #e49c00 !important;
+    background-image: linear-gradient(#00b108, #009007) !important;
+    background-image: -webkit-linear-gradient(#00b108, #009007) !important;
+    background-image: -moz-linear-gradient(#00b108, #009007) !important;
+    background-image: -ms-linear-gradient(#00b108, #009007) !important;
+    background-image: -o-linear-gradient(#00b108, #009007) !important;
+    background-repeat: repeat-x !important;
+    border-color: #007606 !important;
+}
+
+.MDEditor .btn-primary:hover {
+    color: rgb(255, 255, 255) !important;
+    background-color: #ffce59 !important;
+    background-image: linear-gradient(#00a608, #008506) !important;
+    background-image: -webkit-linear-gradient(#00a608, #008506) !important;
+    background-image: -moz-linear-gradient(#00a608, #008506) !important;
+    background-image: -ms-linear-gradient(#00a608, #008506) !important;
+    background-image: -o-linear-gradient(#00a608, #008506) !important;
+    background-repeat: repeat-x !important;
+    border-color: #007606 !important;
+}
+
+.MDEditor .btn-group {
+	margin: 0px 3px;
+}
+
+.MDEditor .btn-group:first-child {
+	margin: 0px 3px;
+	margin-left: 0px !important;
+}
+
+.MDEditor .btn-group:last-child {
+	margin: 0px 3px;
+	margin-right: 0px !important;
+}
+
+.MDEditor .btn-group > button {
+    border-radius: 0 0 0 0 !important;
+    border-width: 1px 0px;
+    border-color: rgb(221, 221, 221) rgb(221, 221, 221) rgb(197, 197, 197);
+}
+
+.MDEditor .btn-group > button:first-child {
+    border-radius: 3px 0 0 3px !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221) rgb(221, 221, 221) rgb(197, 197, 197);
+	border-right: 0px !important;
+}
+
+.MDEditor .btn-group > button:last-child {
+    border-radius: 0 3px 3px 0 !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221) rgb(221, 221, 221) rgb(197, 197, 197);
+	border-left: 0px !important;
+}
+
+.MDEditor .btn-group > button:only-child {
+    border-radius: 3px 3px 3px 3px !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(221, 221, 221) rgb(221, 221, 221) rgb(197, 197, 197) !important;
+}
+
+.MDEditor .btn-group > button:hover, .MDEditor .btn-group > button:active {
+    border-color: rgb(42, 101, 160) !important;
+}
+
+/* Footer */
+.MDEditor_footer, .MDEditor_footer a {
+    font-size: 11px !important;
+    line-height: 1.5;
 }
