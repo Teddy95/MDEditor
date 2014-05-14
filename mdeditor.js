@@ -39,7 +39,8 @@ var mdeditor = {
 	language: null,
 	elementName: null,
 	maxUpload: null,
-	globalClick: true
+	globalClick: true,
+	notUpload: null
 };
 
 // Word counter
@@ -636,8 +637,18 @@ $.fn.mdeditor = function (settings) {
 		settings.maxUpload = 2000000;
 	}
 
+	if (typeof settings.notUpload == 'undefined') {
+		settings.notUpload = [
+			'php',
+			'py',
+			'rb',
+			'pl'
+		];
+	}
+
 	mdeditor.maxUpload = settings.maxUpload;
 	mdeditor.language = settings.language;
+	mdeditor.notUpload = settings.notUpload;
 
 	if (settings.theme !== false) {
 		$('head').append('<!-- MDEditor theme ' + settings.theme + ' --><link rel="stylesheet" type="text/css" href="' + mdeditor.url + 'themes/' + settings.theme + '/mdtheme.css" /><!-- MDEditor theme end -->');
