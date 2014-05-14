@@ -37,7 +37,10 @@
 			"empty": "You haven't written anything yet!"
 		},
 		"attachment": {
-			"error": "The selected file is to large!"
+			"error": {
+				"max": "The selected file is to large!",
+				"not": "This file type is not allowed!"
+			}
 		},
 		"error": "404 - Please check your internet connection!"
 	},
