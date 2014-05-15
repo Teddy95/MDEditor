@@ -637,7 +637,7 @@ $.fn.mdeditor = function (settings) {
 		settings.maxUpload = 2000000;
 	}
 
-	if (typeof settings.notUpload == 'undefined') {
+	if (typeof settings.notUpload == 'undefined' || settings.notUpload === false) {
 		settings.notUpload = [
 			'php',
 			'py',
@@ -709,7 +709,7 @@ $.fn.mdeditor = function (settings) {
 	}
 
 	if (settings.helpIcon === true) {
-		settingsHelpIcon = "<button id='MDEditor_" + elementName + "_buttons_button_help' type='button' class='btn btn-default tipN' title='" + language.button.help + "' onclick='mdeditorButtonHelp(\"" + elementName + "\");'><i class='fa fa-question'></i></button>";
+		settingsHelpIcon = "<button id='MDEditor_" + elementName + "_buttons_button_help' type='button' class='btn btn-default tipN' title='" + language.button.help + "' onclick='mdeditorButtonHelp(\"" + elementName + "\");'><i class='fa fa-support'></i></button>";
 	} else {
 		settingsHelpIcon = '';
 	}
