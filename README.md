@@ -47,8 +47,6 @@ $.("#mdeditor").mdeditor({
 });
 ```
 
-> For attachment you need [php](https://github.com/php/php-src) and the [json extension for php](http://www.php.net/manual/de/book.json.php)!
-
 -------------
 
 ### Markdown -> HTML
