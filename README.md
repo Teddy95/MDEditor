@@ -10,6 +10,8 @@ MDEditor is a simple Markdown editor.
 
 ### Installation
 
+> You need [jQuery](https://github.com/jquery/jquery) version 1.11.0 or higher and [Font Awesome](https://github.com/FortAwesome/Font-Awesome) version 4.1.0 or higher!
+
 HTML markup:
 ```html
 <textarea id="mdeditor" name="mdeditor"></textarea>
