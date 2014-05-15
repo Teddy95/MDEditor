@@ -59,7 +59,7 @@ MDEditor use [chjj/marked](https://github.com/chjj/marked) to transform Markdown
 ### Examples
 
 [examples/](https://github.com/Teddy95/MDEditor/tree/master/examples) - Directory with examples  
-[MDEDitor wiki - Examples](https://github.com/Teddy95/MDEditor/wiki/Examples)
+[MDEditor wiki - Examples](https://github.com/Teddy95/MDEditor/wiki/Examples)
 
 -------------
 
