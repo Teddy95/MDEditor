@@ -37,7 +37,13 @@ $.("#mdeditor").mdeditor({
 	includeTipsy: true, // includes tipsy, if you haven't already done this
 	wordWrap: true, // wordwrap in textarea
 	theme: false, // choose a theme -> false = no theme
-	maxUpload: 2000000 // 2MB
+	maxUpload: 2000000, // 2MB
+	notUpload: [
+		'php',
+		'py',
+		'rb',
+		'pl'
+	] // .php, .py, .rb and .pl files aren't allowed for upload
 });
 ```
 
