@@ -39,10 +39,11 @@
 		"attachment": {
 			"error": {
 				"max": "Die hochzuladende Datei ist zu groß!",
-				"not": "Dieser Dateityp ist nicht erlaubt!"
+				"not": "Dieser Dateityp ist nicht erlaubt!",
+				"unknown": "Ein unbekannter Fehler ist aufgetreten!"
 			}
 		},
-		"error": "404 - Bitte prüfen Sie ihre Internet Verbindung!"
+		"error": "Bitte prüfen Sie ihre Internet Verbindung!"
 	},
 	"tooltip": {
 		"close": "Schließen",
