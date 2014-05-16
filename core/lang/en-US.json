@@ -39,10 +39,11 @@
 		"attachment": {
 			"error": {
 				"max": "The selected file is to large!",
-				"not": "This file type is not allowed!"
+				"not": "This file type is not allowed!",
+				"unknown": "An unknown error has occurred!"
 			}
 		},
-		"error": "404 - Please check your internet connection!"
+		"error": "Please check your internet connection!"
 	},
 	"tooltip": {
 		"close": "Close",
