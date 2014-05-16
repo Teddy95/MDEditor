@@ -86,7 +86,7 @@ function mdeditorButtonTable (elementName) {
 		},
 		error: function () {
 			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 			});
 		}
 	});
@@ -121,7 +121,7 @@ function mdeditorButtonAnchor (elementName) {
 		},
 		error: function () {
 			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 			});
 		}
 	});
@@ -156,7 +156,7 @@ function mdeditorButtonYoutube (elementName) {
 		},
 		error: function () {
 			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 			});
 		}
 	});
@@ -196,7 +196,7 @@ function mdeditorButtonMail (elementName) {
 		},
 		error: function () {
 			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 			});
 		}
 	});
@@ -223,7 +223,7 @@ function mdeditorButtonPhone (elementName) {
 		},
 		error: function () {
 			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 			});
 		}
 	});
@@ -254,7 +254,7 @@ function mdeditorButtonAttachment (elementName) {
 		},
 		error: function () {
 			$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 			});
 		}
 	});
@@ -393,7 +393,7 @@ function mdeditorButtonHyperlink (elementName) {
 		},
 		error: function () {
 			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 			});
 		}
 	});
@@ -433,7 +433,7 @@ function mdeditorButtonImage (elementName) {
 		},
 		error: function () {
 			$('#MDEditor_' + elementName + '_body_optioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+				$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 			});
 		}
 	});
@@ -488,7 +488,7 @@ function mdeditorButtonHelp (elementName) {
 		},
 		error: function () {
 			$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 			});
 		}
 	});
@@ -519,7 +519,7 @@ function mdeditorButtonCopyright (elementName) {
 		},
 		error: function () {
 			$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
-				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+				$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 			});
 		}
 	});
@@ -791,6 +791,7 @@ $.fn.mdeditor = function (settings) {
 		if (e.keyCode == 27) {
 			mdeditorOptioncontainerCancel(elementName);
 			mdeditorActioncontainerCancel(elementName);
+			$('.tipsy').css('display', 'none');
 		}
 
 		return true;
