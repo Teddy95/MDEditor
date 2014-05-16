@@ -7,6 +7,12 @@ $json = file_get_contents('../lang/' . $_GET['lang'] . '.json');
 $lang = json_decode($json, true);
 
 /**
+ * Error message configurations
+ */
+$errorDisplay = 'none';
+$errorMsg = '';
+
+/**
  * Check action
  */
 if (isset($_GET)) {
@@ -20,17 +26,31 @@ if (isset($_GET)) {
 
 	if (isset($_GET['action']) && $_GET['action'] == 'upload') {
 		if (isset($_FILES)) {
-			$_FILES['MDEditor_fileupload']['error'] == 0;
-			
-			if (file_exists('../../attachment/' . $_FILES['MDEditor_fileupload']['name'])) {
-				$filename = explode('.', $_FILES['MDEditor_fileupload']['name']);
-				$filename[0] = uniqid();
-				$filename = implode('.', $filename);
+			if($_FILES['MDEditor_fileupload']['error'] != 0) {
+				$errorDisplay = 'block';
+				$errorMsg = '<div class=\'alert alert-danger\'><i class=\'fa fa-warning\'></i> ' . $lang['message']['attachment']['error']['unknown'] . '</div>';
 			} else {
-				$filename = $_FILES['MDEditor_fileupload']['name'];
-			}
+				$_FILES['MDEditor_fileupload']['name'] = str_replace('\'', '', $_FILES['MDEditor_fileupload']['name']);
+				$_FILES['MDEditor_fileupload']['name'] = str_replace(' ', '_', $_FILES['MDEditor_fileupload']['name']);
+				$_FILES['MDEditor_fileupload']['name'] = str_replace('(', '', $_FILES['MDEditor_fileupload']['name']);
+				$_FILES['MDEditor_fileupload']['name'] = str_replace(')', '', $_FILES['MDEditor_fileupload']['name']);
+				$_FILES['MDEditor_fileupload']['name'] = str_replace('[', '', $_FILES['MDEditor_fileupload']['name']);
+				$_FILES['MDEditor_fileupload']['name'] = str_replace(']', '', $_FILES['MDEditor_fileupload']['name']);
+				$_FILES['MDEditor_fileupload']['name'] = str_replace('{', '', $_FILES['MDEditor_fileupload']['name']);
+				$_FILES['MDEditor_fileupload']['name'] = str_replace('}', '', $_FILES['MDEditor_fileupload']['name']);
+				$_FILES['MDEditor_fileupload']['name'] = str_replace('<', '', $_FILES['MDEditor_fileupload']['name']);
+				$_FILES['MDEditor_fileupload']['name'] = str_replace('>', '', $_FILES['MDEditor_fileupload']['name']);
+				
+				if (file_exists('../../attachment/' . $_FILES['MDEditor_fileupload']['name'])) {
+					$filename = explode('.', $_FILES['MDEditor_fileupload']['name']);
+					$filename[0] = uniqid();
+					$filename = implode('.', $filename);
+				} else {
+					$filename = $_FILES['MDEditor_fileupload']['name'];
+				}
 
-			move_uploaded_file($_FILES['MDEditor_fileupload']['tmp_name'], '../../attachment/' . $filename);
+				move_uploaded_file($_FILES['MDEditor_fileupload']['tmp_name'], '../../attachment/' . $filename);
+			}
 		}
 	}
 }
@@ -44,7 +64,7 @@ $files = glob('../../attachment/*.*');
 
 	<hr />
 
-	<div data-element='MDEditor_%ELEMENTNAME%_source_attachment_fileupload_error' style='display: none;'></div>
+	<div data-element='MDEditor_%ELEMENTNAME%_source_attachment_fileupload_error' style='display: <?php echo $errorDisplay; ?>;'><?php echo $errorMsg; ?></div>
 
 	<form data-element='MDEditor_%ELEMENTNAME%_source_attachment_fileupload_form'>
 		<b data-element='MDEditor_%ELEMENTNAME%_source_attachment_fileupload'></b><b>: </b><input data-element='MDEditor_%ELEMENTNAME%_source_attachment_fileupload_input' name='MDEditor_fileupload' type='file' style='display: inline;' />
@@ -181,7 +201,7 @@ $files = glob('../../attachment/*.*');
 				},
 				error: function () {
 					$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
-						$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+						$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 					});
 				}
 			});
@@ -201,7 +221,7 @@ $files = glob('../../attachment/*.*');
 			language = mdeditor.lang;
 
 			if (filesize > mdeditor.maxUpload) {
-				$('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_error').html('<div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.attachment.error.max + '</div>').fadeIn();
+				$('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_error').html('<div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.attachment.error.max + '</div>').fadeIn();
 				return;
 			}
 
@@ -212,7 +232,7 @@ $files = glob('../../attachment/*.*');
 
 			for (var i = 0; i < mdeditor.notUpload.length; i++) {
 				if (fileExtension == mdeditor.notUpload[i]) {
-					$('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_error').html('<div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.attachment.error.not + '</div>').fadeIn();
+					$('#MDEditor_' + mdeditor.elementName + '_source_attachment_fileupload_error').html('<div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.attachment.error.not + '</div>').fadeIn();
 					return;
 				}
 			}
@@ -239,7 +259,7 @@ $files = glob('../../attachment/*.*');
 				},
 				error: function () {
 					$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
-						$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-info-circle"></i> ' + language.message.error + '</div></div>').fadeIn(80);
+						$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html('<div class="MDEditor_body_actioncontainer_content_error"><div class="alert alert-danger"><i class="fa fa-warning"></i> ' + language.message.error + '</div></div>').fadeIn(80);
 					});
 				}
 			});
