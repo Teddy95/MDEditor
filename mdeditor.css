@@ -189,6 +189,11 @@
 	margin-top: 10px;
 }
 
+.MDEditor_body_actioncontainer_content_attachment > p {
+	padding: 15px 0px 5px 0px;
+	border-bottom: 1px solid #eeeeee;
+}
+
 /* Tipsy */
 
 .tipsy {
