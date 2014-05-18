@@ -1,6 +1,6 @@
 # MDEditor
 
-![Image](http://i.imgur.com/EWYdPkX.png)
+![Image](http://i.imgur.com/FybiZOu.png)
 
 MDEditor is a simple Markdown editor.
 
@@ -32,6 +32,7 @@ $.("#mdeditor").mdeditor({
 	codeIcon: true, // includes button for code markup
 	mailIcon: true, // includes button for a mail hyperlink markup
 	phoneIcon: true, // includes button for a phone hyperlink markup
+	headerIcon: true, // includes button for a header markup
 	helpIcon: true, // includes help button
 	preview: true, // includes preview button
 	attachment: true, // includes attachment button
@@ -39,6 +40,7 @@ $.("#mdeditor").mdeditor({
 	includeTipsy: true, // includes tipsy, if you haven't already done this
 	wordWrap: true, // wordwrap in textarea
 	theme: false, // choose a theme -> false = no theme
+	tabs: true, // activate tabs in textarea
 	maxUpload: 2000000, // 2MB
 	notUpload: [
 		'php',
@@ -74,7 +76,7 @@ MDEditor use [chjj/marked](https://github.com/chjj/marked) to transform Markdown
 ### Download
 
 - [Releases on Github](https://github.com/Teddy95/MDEditor/releases)
-- **[Download latest version from Github](https://github.com/Teddy95/MDEditor/archive/v1.0.0.zip)**
+- **[Download latest version from Github](https://github.com/Teddy95/MDEditor/archive/v1.1.0.zip)**
 - [Download master from Github](https://github.com/Teddy95/MDEditor/archive/master.zip)
 
 -------------
