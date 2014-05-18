@@ -11,8 +11,8 @@
 		"code": "Code",
 		"mail": "E-Mail Adresse",
 		"phone": "Telefonnummer",
-		"icons": "Symbole",
 		"attachment": "Anhang",
+		"header": "Überschrift",
 		"bold": "Fett",
 		"italic": "Kursiv",
 		"underline": "Unterstrichen",
@@ -43,7 +43,7 @@
 				"unknown": "Ein unbekannter Fehler ist aufgetreten!"
 			}
 		},
-		"error": "Bitte prüfen Sie ihre Internet Verbindung!"
+		"error": "Bitte prüfen Sie ihre Internetverbindung!"
 	},
 	"tooltip": {
 		"close": "Schließen",
@@ -108,6 +108,12 @@
 				"images": "Bilder",
 				"audio": "Audio Dateien",
 				"videos": "Videos",
+				"word": "Word- und Textdokumente",
+				"excel": "Excel Arbeitsmappen",
+				"powerpoint": "PowerPoint Präsentationen",
+				"pdf": "PDF Dokumente",
+				"code": "Code Dateien",
+				"archives": "Archive",
 				"other": "Weitere Dateien"
 			}
 		}
