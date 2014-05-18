@@ -40,7 +40,7 @@ if (isset($_GET)) {
 				$_FILES['MDEditor_fileupload']['name'] = str_replace('}', '', $_FILES['MDEditor_fileupload']['name']);
 				$_FILES['MDEditor_fileupload']['name'] = str_replace('<', '', $_FILES['MDEditor_fileupload']['name']);
 				$_FILES['MDEditor_fileupload']['name'] = str_replace('>', '', $_FILES['MDEditor_fileupload']['name']);
-				
+
 				if (file_exists('../../attachment/' . $_FILES['MDEditor_fileupload']['name'])) {
 					$filename = explode('.', $_FILES['MDEditor_fileupload']['name']);
 					$filename[0] = uniqid();
@@ -103,7 +103,7 @@ $files = glob('../../attachment/*.*');
 
 				$filename = explode('.', basename($file));
 				$filename = '.' . $filename[count($filename)-1];
-				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-music\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-music'></i></p><p>" . $filename . "</p></div>";
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-music\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file-audio-o'></i></p><p>" . $filename . "</p></div>";
 			}
 		}
 
@@ -120,14 +120,116 @@ $files = glob('../../attachment/*.*');
 
 				$filename = explode('.', basename($file));
 				$filename = '.' . $filename[count($filename)-1];
-				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-video-camera\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-video-camera'></i></p><p>" . $filename . "</p></div>";
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-video-camera\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file-video-o'></i></p><p>" . $filename . "</p></div>";
 			}
 		}
 
 		$i = 0;
 
 		foreach ($files as $file) {
-			if (substr($file, -4, 4) != '.jpg' && substr($file, -4, 4) != '.png' && substr($file, -4, 4) != '.gif' && substr($file, -4, 4) != '.mp3' && substr($file, -4, 4) != '.wma' && substr($file, -4, 4) != '.wav' && substr($file, -4, 4) != '.mp4' && substr($file, -4, 4) != '.avi' && substr($file, -4, 4) != '.3gp' && substr($file, -4, 4) != '.mov') {
+			if (substr($file, -4, 4) == '.doc' || substr($file, -5, 5) == '.docx' || substr($file, -4, 4) == '.rtf' || substr($file, -4, 4) == '.txt') {
+				$i++;
+				$j++;
+
+				if ($i == 1) {
+					echo "<p><i data-element='MDEditor_%ELEMENTNAME%_source_attachment_content_word'></i><i>:</i></p>";
+				}
+
+				$filename = explode('.', basename($file));
+				$filename = '.' . $filename[count($filename)-1];
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-pencil\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file-word-o'></i></p><p>" . $filename . "</p></div>";
+			}
+		}
+
+		$i = 0;
+
+		foreach ($files as $file) {
+			if (substr($file, -4, 4) == '.xls' || substr($file, -5, 5) == '.xlsx') {
+				$i++;
+				$j++;
+
+				if ($i == 1) {
+					echo "<p><i data-element='MDEditor_%ELEMENTNAME%_source_attachment_content_excel'></i><i>:</i></p>";
+				}
+
+				$filename = explode('.', basename($file));
+				$filename = '.' . $filename[count($filename)-1];
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-bar-chart-o\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file-excel-o'></i></p><p>" . $filename . "</p></div>";
+			}
+		}
+
+		$i = 0;
+
+		foreach ($files as $file) {
+			if (substr($file, -4, 4) == '.ppt' || substr($file, -5, 5) == '.pptx') {
+				$i++;
+				$j++;
+
+				if ($i == 1) {
+					echo "<p><i data-element='MDEditor_%ELEMENTNAME%_source_attachment_content_powerpoint'></i><i>:</i></p>";
+				}
+
+				$filename = explode('.', basename($file));
+				$filename = '.' . $filename[count($filename)-1];
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-bullhorn\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file-powerpoint-o'></i></p><p>" . $filename . "</p></div>";
+			}
+		}
+
+		$i = 0;
+
+		foreach ($files as $file) {
+			if (substr($file, -4, 4) == '.pdf') {
+				$i++;
+				$j++;
+
+				if ($i == 1) {
+					echo "<p><i data-element='MDEditor_%ELEMENTNAME%_source_attachment_content_pdf'></i><i>:</i></p>";
+				}
+
+				$filename = explode('.', basename($file));
+				$filename = '.' . $filename[count($filename)-1];
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-paper-plane-o\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file-pdf-o'></i></p><p>" . $filename . "</p></div>";
+			}
+		}
+
+		$i = 0;
+
+		foreach ($files as $file) {
+			if (substr($file, -3, 3) == '.as' || substr($file, -4, 4) == '.bat' || substr($file, -2, 2) == '.c' || substr($file, -2, 2) == '.h' || substr($file, -3, 3) == '.cs' || substr($file, -4, 4) == '.cpp' || substr($file, -3, 3) == '.cc' || substr($file, -4, 4) == '.cxx' || substr($file, -4, 4) == '.c++' || substr($file, -4, 4) == '.hpp' || substr($file, -4, 4) == '.h++' || substr($file, -4, 4) == '.inl' || substr($file, -4, 4) == '.ipp' || substr($file, -3, 3) == '.cp' || substr($file, -2, 2) == '.C' || substr($file, -3, 3) == '.hh' || substr($file, -4, 4) == '.css' || substr($file, -5, 5) == '.html' || substr($file, -4, 4) == '.htm' || substr($file, -6, 6) == '.xhtml' || substr($file, -4, 4) == '.inc' || substr($file, -4, 4) == '.tpl' || substr($file, -5, 5) == '.tmpl' || substr($file, -3, 3) == '.hs' || substr($file, -5, 5) == '.json' || substr($file, -3, 3) == '.js' || substr($file, -5, 5) == '.java' || substr($file, -3, 3) == '.md' || substr($file, -2, 2) == '.m' || substr($file, -4, 4) == '.php' || substr($file, -3, 3) == '.pl' || substr($file, -3, 3) == '.py' || substr($file, -3, 3) == '.rb' || substr($file, -5, 5) == '.rxml' || substr($file, -4, 4) == '.sql' || substr($file, -4, 4) == '.xml') {
+				$i++;
+				$j++;
+
+				if ($i == 1) {
+					echo "<p><i data-element='MDEditor_%ELEMENTNAME%_source_attachment_content_code'></i><i>:</i></p>";
+				}
+
+				$filename = explode('.', basename($file));
+				$filename = '.' . $filename[count($filename)-1];
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-code\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file-code-o'></i></p><p>" . $filename . "</p></div>";
+			}
+		}
+
+		$i = 0;
+
+		foreach ($files as $file) {
+			if (substr($file, -4, 4) == '.zip' || substr($file, -4, 4) == '.tar' || substr($file, -4, 4) == '.rar' || substr($file, -4, 4) == '.iso' || substr($file, -3, 3) == '.gz') {
+				$i++;
+				$j++;
+
+				if ($i == 1) {
+					echo "<p><i data-element='MDEditor_%ELEMENTNAME%_source_attachment_content_archives'></i><i>:</i></p>";
+				}
+
+				$filename = explode('.', basename($file));
+				$filename = '.' . $filename[count($filename)-1];
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-archive\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file-zip-o'></i></p><p>" . $filename . "</p></div>";
+			}
+		}
+
+		$i = 0;
+
+		foreach ($files as $file) {
+			if (substr($file, -4, 4) != '.jpg' && substr($file, -4, 4) != '.png' && substr($file, -4, 4) != '.gif' && substr($file, -4, 4) != '.mp3' && substr($file, -4, 4) != '.wma' && substr($file, -4, 4) != '.wav' && substr($file, -4, 4) != '.mp4' && substr($file, -4, 4) != '.avi' && substr($file, -4, 4) != '.3gp' && substr($file, -4, 4) != '.mov' && substr($file, -4, 4) != '.doc' && substr($file, -5, 5) != '.docx' && substr($file, -4, 4) != '.rtf' && substr($file, -4, 4) != '.txt' && substr($file, -4, 4) != '.xls' && substr($file, -5, 5) != '.xlsx' && substr($file, -4, 4) != '.ppt' && substr($file, -5, 5) != '.pptx' && substr($file, -4, 4) != '.pdf' && substr($file, -4, 4) != '.zip' && substr($file, -4, 4) != '.tar' && substr($file, -4, 4) != '.rar' && substr($file, -4, 4) != '.iso' && substr($file, -3, 3) != '.gz' && substr($file, -3, 3) != '.as' && substr($file, -4, 4) != '.bat' && substr($file, -2, 2) != '.c' && substr($file, -2, 2) != '.h' && substr($file, -3, 3) != '.cs' && substr($file, -4, 4) != '.cpp' && substr($file, -3, 3) != '.cc' && substr($file, -4, 4) != '.cxx' && substr($file, -4, 4) != '.c++' && substr($file, -4, 4) != '.hpp' && substr($file, -4, 4) != '.h++' && substr($file, -4, 4) != '.inl' && substr($file, -4, 4) != '.ipp' && substr($file, -3, 3) != '.cp' && substr($file, -2, 2) != '.C' && substr($file, -3, 3) != '.hh' && substr($file, -4, 4) != '.css' && substr($file, -5, 5) != '.html' && substr($file, -4, 4) != '.htm' && substr($file, -6, 6) != '.xhtml' && substr($file, -4, 4) != '.inc' && substr($file, -4, 4) != '.tpl' && substr($file, -5, 5) != '.tmpl' && substr($file, -3, 3) != '.hs' && substr($file, -5, 5) != '.json' && substr($file, -3, 3) != '.js' && substr($file, -5, 5) != '.java' && substr($file, -3, 3) != '.md' && substr($file, -2, 2) != '.m' && substr($file, -4, 4) != '.php' && substr($file, -3, 3) != '.pl' && substr($file, -3, 3) != '.py' && substr($file, -3, 3) != '.rb' && substr($file, -5, 5) != '.rxml' && substr($file, -4, 4) != '.sql' && substr($file, -4, 4) != '.xml') {
 				$i++;
 				$j++;
 
@@ -137,7 +239,7 @@ $files = glob('../../attachment/*.*');
 
 				$filename = explode('.', basename($file));
 				$filename = '.' . $filename[count($filename)-1];
-				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-file\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file'></i></p><p>" . $filename . "</p></div>";
+				echo "<div id='MDEditor_attachment_" . $j . "' class='MDEditor_attachment_placeholder tipN' onclick='mdeditorInsert(\"" . $j . "\");' data-insertType='link' data-file='" . $_GET['path'] . str_replace('../../', '', $file) . "' title='" . $lang['tooltip']['sethyperlink'] . "<br /><i class=\"fa fa-file\"></i> <b>" . str_replace('../../attachment/', '', $file) . "</b>'><p><i class='fa fa-file-o'></i></p><p>" . $filename . "</p></div>";
 			}
 		}
 	} else {
@@ -295,6 +397,12 @@ $files = glob('../../attachment/*.*');
 	$('#MDEditor_' + elementName + '_source_attachment_content_images').html(language.source.label.attachment.images);
 	$('#MDEditor_' + elementName + '_source_attachment_content_audio').html(language.source.label.attachment.audio);
 	$('#MDEditor_' + elementName + '_source_attachment_content_videos').html(language.source.label.attachment.videos);
+	$('#MDEditor_' + elementName + '_source_attachment_content_word').html(language.source.label.attachment.word);
+	$('#MDEditor_' + elementName + '_source_attachment_content_excel').html(language.source.label.attachment.excel);
+	$('#MDEditor_' + elementName + '_source_attachment_content_powerpoint').html(language.source.label.attachment.powerpoint);
+	$('#MDEditor_' + elementName + '_source_attachment_content_pdf').html(language.source.label.attachment.pdf);
+	$('#MDEditor_' + elementName + '_source_attachment_content_archives').html(language.source.label.attachment.archives);
+	$('#MDEditor_' + elementName + '_source_attachment_content_code').html(language.source.label.attachment.code);
 	$('#MDEditor_' + elementName + '_source_attachment_content_other').html(language.source.label.attachment.other);
 	$('#MDEditor_' + elementName + '_source_attachment_content_empty').html(language.source.label.attachment.empty);
 	$('#MDEditor_' + elementName + '_source_attachment_content_button_deleteall_span').html(language.source.label.attachment.deleteall);
