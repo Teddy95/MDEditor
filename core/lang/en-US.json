@@ -11,8 +11,8 @@
 		"code": "Code",
 		"mail": "E-Mail Address",
 		"phone": "Phone Number",
-		"icons": "Icons",
 		"attachment": "Attachment",
+		"header": "Header",
 		"bold": "Bold",
 		"italic": "Italic",
 		"underline": "Underline",
@@ -108,6 +108,12 @@
 				"images": "Images",
 				"audio": "Audio files",
 				"videos": "Videos",
+				"word": "Word documents",
+				"excel": "Excel workbooks",
+				"powerpoint": "PowerPoint presentations",
+				"pdf": "PDF files",
+				"code": "Code files",
+				"archives": "Archives",
 				"other": "Other files"
 			}
 		}
