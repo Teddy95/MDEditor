@@ -260,6 +260,19 @@ function mdeditorButtonAttachment (elementName) {
 	});
 }
 
+function mdeditorButtonHeader (elementName) {
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+	
+	if (typeof $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == undefined || $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text == '') {
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "# ");
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
+	} else {
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', "# " + $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text);
+		$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
+	}
+}
+
 function mdeditorButtonBold (elementName) {
 	mdeditorOptioncontainerCancel(elementName);
 	mdeditorActioncontainerCancel(elementName);
@@ -534,6 +547,7 @@ function mdeditorOptioncontainerCancel (elementName) {
 			return true;
 		});
 	});
+	$('.tipsy').css('display', 'none');
 }
 
 function mdeditorOptioncontainerInsertElement (elementName) {
@@ -557,6 +571,7 @@ function mdeditorActioncontainerCancel (elementName) {
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top');
 	});
+	$('.tipsy').css('display', 'none');
 }
 
 // Create the Editor
@@ -605,6 +620,10 @@ $.fn.mdeditor = function (settings) {
 		settings.phoneIcon = false;
 	}
 
+	if (typeof settings.headerIcon == 'undefined') {
+		settings.headerIcon = false;
+	}
+
 	if (typeof settings.helpIcon == 'undefined') {
 		settings.helpIcon = false;
 	}
@@ -631,6 +650,14 @@ $.fn.mdeditor = function (settings) {
 
 	if (typeof settings.theme == 'undefined') {
 		settings.theme = false;
+	}
+
+	if (typeof settings.tabs == 'undefined') {
+		settings.tabs = true;
+	}
+
+	if (typeof settings.footer == 'undefined') {
+		settings.footer = 'copyright'; // copyright, version or none!
 	}
 
 	if (typeof settings.maxUpload == 'undefined') {
@@ -708,6 +735,12 @@ $.fn.mdeditor = function (settings) {
 		settingsMailIconPhoneIcon = "<div class='btn-group' style='float: left;'>" + settingsMailIcon + settingsPhoneIcon + "</div>";
 	}
 
+	if (settings.headerIcon === true) {
+		settingsHeaderIcon = "<div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_header' type='button' class='btn btn-default tipNDelay' title='" + language.button.header + "' onclick='mdeditorButtonHeader(\"" + elementName + "\");'><i class='fa fa-header'></i></button></div>";
+	} else {
+		settingsHeaderIcon = '';
+	}
+
 	if (settings.helpIcon === true) {
 		settingsHelpIcon = "<button id='MDEditor_" + elementName + "_buttons_button_help' type='button' class='btn btn-default tipN' title='" + language.button.help + "' onclick='mdeditorButtonHelp(\"" + elementName + "\");'><i class='fa fa-support'></i></button>";
 	} else {
@@ -750,6 +783,25 @@ $.fn.mdeditor = function (settings) {
 		settingsIncludeTipsy = '';
 	}
 
+	if (settings.footer != 'copyright' && settings.footer != 'version' && settings.footer != 'none') {
+		settings.footer = 'copyright';
+	}
+
+	if (settings.footer == 'copyright') {
+		var date;
+		date = new Date();
+
+		settingsFooter = "<p style='display: inline; float: right;'>© " + date.getFullYear() + " <a onclick='mdeditorButtonCopyright(\"" + elementName + "\")'>MDEditor</a></p>";
+	} else {
+		if (settings.footer == 'version') {
+			settingsFooter = "<p style='display: inline; float: right;'>v1.1.0</p>";
+		} else {
+			if (settings.footer == 'none') {
+				settingsFooter = '';
+			}
+		}
+	}
+
 	var value;
 	value = $(this).val();
 
@@ -758,7 +810,7 @@ $.fn.mdeditor = function (settings) {
 
 	var EditorHTMLCode;
 	EditorHTMLCode = "<!-- MD Editor start © 2014 Andre Sieverding -->";
-	EditorHTMLCode += "<div id='MDEditor_" + elementName + "' class='MDEditor' style='width: " + settings.width + ";'><textarea id='MDEditor_" + elementName + "_outputarea' name='" + elementName + "' style='display: none !important;'></textarea><textarea id='MDEditor_" + elementName + "_hiddenarea' style='display: none !important;'></textarea><div id='MDEditor_" + elementName + "_buttons' class='MDEditor_buttons'>" + settingsSpecialBar + "<div id='MDEditor_" + elementName + "_buttons_toolbar_basic' class='btn-toolbar'><div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_bold' type='button' class='btn btn-default tipNDelay' title='" + language.button.bold + "' onclick='mdeditorButtonBold(\"" + elementName + "\");'><i class='fa fa-bold'></i></button><button id='MDEditor_" + elementName + "_buttons_button_italic' type='button' class='btn btn-default tipNDelay' title='" + language.button.italic + "' onclick='mdeditorButtonItalic(\"" + elementName + "\");'><i class='fa fa-italic'></i></button><button id='MDEditor_" + elementName + "_buttons_button_underline' type='button' class='btn btn-default tipNDelay' title='" + language.button.underline + "' onclick='mdeditorButtonUnderline(\"" + elementName + "\");'><i class='fa fa-underline'></i></button><button id='MDEditor_" + elementName + "_buttons_button_strikethrough' type='button' class='btn btn-default tipNDelay' title='" + language.button.strikethrough + "' onclick='mdeditorButtonStrikethrough(\"" + elementName + "\");'><i class='fa fa-strikethrough'></i></button></div><div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_olist' type='button' class='btn btn-default tipNDelay' title='" + language.button.olist + "' onclick='mdeditorButtonOList(\"" + elementName + "\");'><i class='fa fa-list-ol'></i></button><button id='MDEditor_" + elementName + "_buttons_button_ulist' type='button' class='btn btn-default tipNDelay' title='" + language.button.ulist + "' onclick='mdeditorButtonUList(\"" + elementName + "\");'><i class='fa fa-list-ul'></i></button></div><div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_hyperlink' type='button' class='btn btn-default tipNDelay' title='" + language.button.hyperlink + "' onclick='mdeditorButtonHyperlink(\"" + elementName + "\");'><i class='fa fa-chain'></i></button><button id='MDEditor_" + elementName + "_buttons_button_unlink' type='button' class='btn btn-default tipNDelay' title='" + language.button.unlink + "' onclick='mdeditorButtonUnlink(\"" + elementName + "\");'><i class='fa fa-unlink'></i></button><button id='MDEditor_" + elementName + "_buttons_button_image' type='button' class='btn btn-default tipNDelay' title='" + language.button.image + "' onclick='mdeditorButtonImage(\"" + elementName + "\");'><i class='fa fa-picture-o'></i></button></div>" + settingsHelpIconPreview + "</div></div><div id='MDEditor_" + elementName + "_body' class='MDEditor_body'><div id='MDEditor_" + elementName + "_body_edit'><textarea id='MDEditor_" + elementName + "_body_edit_textarea' class='MDEditor_body_edit_textarea' style='height: " + settings.height + ";' onclick='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' onchange='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' onkeyup='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' " + settingsWordWrap + ">" + value + "</textarea></div><div id='MDEditor_" + elementName + "_body_actioncontainer' class='MDEditor_body_actioncontainer'><div><div><a onclick='mdeditorActioncontainerCancel(\"" + elementName + "\");' class='tipW' title='" + language.tooltip.close + "'><i class='fa fa-times'></i></a></div><div><div id='MDEditor_" + elementName + "_body_actioncontainer_content' class='MDEditor_body_actioncontainer_content'></div></div></div></div><div id='MDEditor_" + elementName + "_body_optioncontainer' class='MDEditor_body_optioncontainer'><div><div><div id='MDEditor_" + elementName + "_body_optioncontainer_content' class='MDEditor_body_optioncontainer_content'></div></div><div><div id='MDEditor_" + elementName + "_body_optioncontainer_buttons' class='MDEditor_body_optioncontainer_buttons'><button type='button' class='btn btn-default' onclick='mdeditorOptioncontainerCancel(\"" + elementName + "\");'>" + language.button.frame.cancel + "</button> <button id='MDEditor_" + elementName + "_body_optioncontainer_buttons_insert' type='button' class='btn btn-primary'>" + language.button.frame.insert + "</button></div></div></div></div></div><div id='MDEditor_" + elementName + "_footer' class='MDEditor_footer'>" + settingsWordCounter + "<p style='display: inline; float: right;'>© " + date.getFullYear() + " <a onclick='mdeditorButtonCopyright(\"" + elementName + "\")'>MDEditor</a></p></div><div id='MDEditor_" + elementName + "_jsarea'>" + settingsIncludeTipsy + "<script type='text/javascript' language='javascript' src='" + mdeditor.url + "core/tooltips.js'></script><script type='text/javascript' language='javascript' src='" + mdeditor.url + "core/textrange.js'></script><script type='text/javascript' language='javascript' src='" + mdeditor.url + "core/marked.js'></script></div></div>";
+	EditorHTMLCode += "<div id='MDEditor_" + elementName + "' class='MDEditor' style='width: " + settings.width + ";'><textarea id='MDEditor_" + elementName + "_outputarea' name='" + elementName + "' style='display: none !important;'></textarea><textarea id='MDEditor_" + elementName + "_hiddenarea' style='display: none !important;'></textarea><div id='MDEditor_" + elementName + "_buttons' class='MDEditor_buttons'>" + settingsSpecialBar + "<div id='MDEditor_" + elementName + "_buttons_toolbar_basic' class='btn-toolbar'>" + settingsHeaderIcon + "<div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_bold' type='button' class='btn btn-default tipNDelay' title='" + language.button.bold + "' onclick='mdeditorButtonBold(\"" + elementName + "\");'><i class='fa fa-bold'></i></button><button id='MDEditor_" + elementName + "_buttons_button_italic' type='button' class='btn btn-default tipNDelay' title='" + language.button.italic + "' onclick='mdeditorButtonItalic(\"" + elementName + "\");'><i class='fa fa-italic'></i></button><button id='MDEditor_" + elementName + "_buttons_button_underline' type='button' class='btn btn-default tipNDelay' title='" + language.button.underline + "' onclick='mdeditorButtonUnderline(\"" + elementName + "\");'><i class='fa fa-underline'></i></button><button id='MDEditor_" + elementName + "_buttons_button_strikethrough' type='button' class='btn btn-default tipNDelay' title='" + language.button.strikethrough + "' onclick='mdeditorButtonStrikethrough(\"" + elementName + "\");'><i class='fa fa-strikethrough'></i></button></div><div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_olist' type='button' class='btn btn-default tipNDelay' title='" + language.button.olist + "' onclick='mdeditorButtonOList(\"" + elementName + "\");'><i class='fa fa-list-ol'></i></button><button id='MDEditor_" + elementName + "_buttons_button_ulist' type='button' class='btn btn-default tipNDelay' title='" + language.button.ulist + "' onclick='mdeditorButtonUList(\"" + elementName + "\");'><i class='fa fa-list-ul'></i></button></div><div class='btn-group' style='float: left;'><button id='MDEditor_" + elementName + "_buttons_button_hyperlink' type='button' class='btn btn-default tipNDelay' title='" + language.button.hyperlink + "' onclick='mdeditorButtonHyperlink(\"" + elementName + "\");'><i class='fa fa-chain'></i></button><button id='MDEditor_" + elementName + "_buttons_button_unlink' type='button' class='btn btn-default tipNDelay' title='" + language.button.unlink + "' onclick='mdeditorButtonUnlink(\"" + elementName + "\");'><i class='fa fa-unlink'></i></button><button id='MDEditor_" + elementName + "_buttons_button_image' type='button' class='btn btn-default tipNDelay' title='" + language.button.image + "' onclick='mdeditorButtonImage(\"" + elementName + "\");'><i class='fa fa-picture-o'></i></button></div>" + settingsHelpIconPreview + "</div></div><div id='MDEditor_" + elementName + "_body' class='MDEditor_body'><div id='MDEditor_" + elementName + "_body_edit'><textarea id='MDEditor_" + elementName + "_body_edit_textarea' class='MDEditor_body_edit_textarea' style='height: " + settings.height + ";' onclick='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' onchange='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' onkeyup='$(\"#MDEditor_" + elementName + "_body_edit_textarea\").textareaWordCounter(\"" + elementName + "\");' " + settingsWordWrap + ">" + value + "</textarea></div><div id='MDEditor_" + elementName + "_body_actioncontainer' class='MDEditor_body_actioncontainer'><div><div><a onclick='mdeditorActioncontainerCancel(\"" + elementName + "\");' class='tipW' title='" + language.tooltip.close + "'><i class='fa fa-times'></i></a></div><div><div id='MDEditor_" + elementName + "_body_actioncontainer_content' class='MDEditor_body_actioncontainer_content'></div></div></div></div><div id='MDEditor_" + elementName + "_body_optioncontainer' class='MDEditor_body_optioncontainer'><div><div><div id='MDEditor_" + elementName + "_body_optioncontainer_content' class='MDEditor_body_optioncontainer_content'></div></div><div><div id='MDEditor_" + elementName + "_body_optioncontainer_buttons' class='MDEditor_body_optioncontainer_buttons'><button type='button' class='btn btn-default' onclick='mdeditorOptioncontainerCancel(\"" + elementName + "\");'>" + language.button.frame.cancel + "</button> <button id='MDEditor_" + elementName + "_body_optioncontainer_buttons_insert' type='button' class='btn btn-primary'>" + language.button.frame.insert + "</button></div></div></div></div></div><div id='MDEditor_" + elementName + "_footer' class='MDEditor_footer'>" + settingsWordCounter + settingsFooter + "</div><div id='MDEditor_" + elementName + "_jsarea'>" + settingsIncludeTipsy + "<script type='text/javascript' language='javascript' src='" + mdeditor.url + "core/tooltips.js'></script><script type='text/javascript' language='javascript' src='" + mdeditor.url + "core/textrange.js'></script><script type='text/javascript' language='javascript' src='" + mdeditor.url + "core/marked.js'></script></div></div>";
 	EditorHTMLCode += "<!-- MD Editor end -->";
 
 	$(this).replaceWith(EditorHTMLCode);
@@ -791,11 +843,24 @@ $.fn.mdeditor = function (settings) {
 		if (e.keyCode == 27) {
 			mdeditorOptioncontainerCancel(elementName);
 			mdeditorActioncontainerCancel(elementName);
-			$('.tipsy').css('display', 'none');
 		}
 
 		return true;
 	});
+
+	// Tabs in textarea
+	if (settings.tabs === true) {
+		$(document).keypress(function (e) {
+			if (e.keyCode == 9) {
+				$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', '\t');
+				$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().start+1, 0);
+
+				return false;
+			}
+
+			return true;
+		});
+	}
 
 	// Reset manipulation
 	$(':reset').off();
