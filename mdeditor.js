@@ -794,7 +794,7 @@ $.fn.mdeditor = function (settings) {
 		settingsFooter = "<p style='display: inline; float: right;'>© " + date.getFullYear() + " <a onclick='mdeditorButtonCopyright(\"" + elementName + "\")'>MDEditor</a></p>";
 	} else {
 		if (settings.footer == 'version') {
-			settingsFooter = "<p style='display: inline; float: right;'>v1.1.0</p>";
+			settingsFooter = "<p style='display: inline; float: right;'>v1.1.1</p>";
 		} else {
 			if (settings.footer == 'none') {
 				settingsFooter = '';
