@@ -391,8 +391,7 @@ $files = glob('../../attachment/*.*');
 			});
 		}
 	}
-	
-	Create labels
+
 	$('#MDEditor_' + elementName + '_source_attachment_headline').html(language.source.label.attachment.title);
 	$('#MDEditor_' + elementName + '_source_attachment_fileupload').html(language.source.label.attachment.fileupload);
 	$('#MDEditor_' + elementName + '_source_attachment_content_images').html(language.source.label.attachment.images);
