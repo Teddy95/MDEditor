@@ -22,7 +22,7 @@
 	$('#MDEditor_' + elementName + '_body_optioncontainer_buttons_insert').off();
 	$('#MDEditor_' + elementName + '_body_optioncontainer_buttons_insert').click(function () {
 		if (typeof $('#MDEditor_' + elementName + '_source_phone_input_number').val() !== undefined && $('#MDEditor_' + elementName + '_source_phone_input_number').val() != '') {
-			$('#MDEditor_' + elementName + '_hiddenarea').val("[" + $('#MDEditor_' + elementName + '_source_phone_input_number').val() + "](callto:" + $('#MDEditor_' + elementName + '_source_phone_input_number').val() + ")");
+			$('#MDEditor_' + elementName + '_hiddenarea').val("[" + $('#MDEditor_' + elementName + '_source_phone_input_number').val() + "](callto:" + $('#MDEditor_' + elementName + '_source_phone_input_number').val().replace('/', '').replace(/\s/g, '') + ")");
 			mdeditorOptioncontainerInsertElement(elementName);
 		} else {
 			$('#MDEditor_' + elementName + '_source_phone_input_number').css('border', '1px solid #b10000');
