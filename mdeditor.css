@@ -324,3 +324,7 @@
 .form-control:focus {
 	border-color: #66AFE9 !important;
 }
+
+pre {
+	background-color: #f8f8f8 !important;
+}
