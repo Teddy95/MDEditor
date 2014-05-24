@@ -44,6 +44,25 @@ var mdeditor = {
 	syntaxHighlighting: true
 };
 
+// Paste text at cursor position
+function mdeditorInsert (insertValue) {
+	var elementName;
+	elementName = mdeditor.elementName;
+
+	$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', insertValue);
+	$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
+}
+
+// Copy marked text
+function mdeditorGet () {
+	var elementName;
+	var markedValue;
+	elementName = mdeditor.elementName;
+	markedValue = $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().text;
+
+	return markedValue;
+}
+
 // Word counter
 $.fn.textareaWordCounter = function (elementName) {
 	var msg;
