@@ -11,7 +11,7 @@ MDEditor is a simple Markdown editor.
 ### Installation
 
 > You need [jQuery](https://github.com/jquery/jquery) version 1.11.0 or higher and [Font Awesome](https://github.com/FortAwesome/Font-Awesome) version 4.1.0 or higher!  
-If you doesn't use themes, you need [bootstrap](https://github.com/twbs/bootstrap#bugs-and-feature-requests)!
+If you doesn't use themes, you need [bootstrap](https://github.com/twbs/bootstrap)!
 
 HTML markup:
 ```html
