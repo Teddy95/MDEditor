@@ -10,7 +10,8 @@ MDEditor is a simple Markdown editor.
 
 ### Installation
 
-> You need [jQuery](https://github.com/jquery/jquery) version 1.11.0 or higher and [Font Awesome](https://github.com/FortAwesome/Font-Awesome) version 4.1.0 or higher!
+> You need [jQuery](https://github.com/jquery/jquery) version 1.11.0 or higher and [Font Awesome](https://github.com/FortAwesome/Font-Awesome) version 4.1.0 or higher!  
+If you doesn't use themes, you need [bootstrap](https://github.com/twbs/bootstrap#bugs-and-feature-requests)!
 
 HTML markup:
 ```html
@@ -38,9 +39,11 @@ $.("#mdeditor").mdeditor({
 	attachment: true, // includes attachment button
 	wordCounter: true, // includes word counter
 	includeTipsy: true, // includes tipsy, if you haven't already done this
+	syntaxHighlighting: true, // activate syntax highlighting in code examples (highlight.js)
 	wordWrap: true, // wordwrap in textarea
 	theme: false, // choose a theme -> false = no theme
 	tabs: true, // activate tabs in textarea
+	lineBreaks: true, // activate line breaks in markdown (insert automatically 2 white spaces)
 	maxUpload: 2000000, // 2MB
 	notUpload: [
 		'php',
@@ -76,7 +79,7 @@ MDEditor use [chjj/marked](https://github.com/chjj/marked) to transform Markdown
 ### Download
 
 - [Releases on Github](https://github.com/Teddy95/MDEditor/releases)
-- **[Download latest version from Github](https://github.com/Teddy95/MDEditor/archive/v1.1.1.zip)**
+- **[Download latest version from Github](https://github.com/Teddy95/MDEditor/archive/v1.2.0.zip)**
 - [Download master from Github](https://github.com/Teddy95/MDEditor/archive/master.zip)
 
 -------------
