@@ -38,23 +38,29 @@ var mdeditor = {
 	lang: null,
 	language: null,
 	elementName: null,
-	maxUpload: null,
 	globalClick: true,
+	lineBreaks: true,
+	maxUpload: null,
 	notUpload: null,
 	syntaxHighlighting: true
 };
 
 // Paste text at cursor position
-function mdeditorInsert (insertValue) {
+function mdInsert (insertValue) {
 	var elementName;
 	elementName = mdeditor.elementName;
 
+	mdeditorOptioncontainerCancel(elementName);
+	mdeditorActioncontainerCancel(elementName);
+
 	$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', insertValue);
 	$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().end, 0);
+
+	return;
 }
 
 // Copy marked text
-function mdeditorGet () {
+function mdGet () {
 	var elementName;
 	var markedValue;
 	elementName = mdeditor.elementName;
@@ -492,7 +498,7 @@ function mdeditorButtonPreview (elementName) {
 	}
 
 	$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
-		$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html("<div class='MDEditor_body_actioncontainer_content_preview'>" + marked(editorValue).replace('<table>', '<table class="table table-striped table-bordered">') + "</div>");
+		$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top').html("<div class='MDEditor_body_actioncontainer_content_preview'>" + marked(editorValue, { gfm: true, tables: true, breaks: mdeditor.lineBreaks }).replace('<table>', '<table class="table table-striped table-bordered">') + "</div>");
 
 		if (mdeditor.syntaxHighlighting === true) {
 			$('pre code').each(function(i, e) {
@@ -711,6 +717,7 @@ $.fn.mdeditor = function (settings) {
 
 	mdeditor.maxUpload = settings.maxUpload;
 	mdeditor.language = settings.language;
+	mdeditor.lineBreaks = settings.lineBreaks;
 	mdeditor.notUpload = settings.notUpload;
 
 	if (settings.theme !== false) {
@@ -869,7 +876,7 @@ $.fn.mdeditor = function (settings) {
 		}
 
 		if (settings.output == 'html') {
-			$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea').val()));
+			$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
 		}
 	});
 
@@ -879,7 +886,7 @@ $.fn.mdeditor = function (settings) {
 		}
 
 		if (settings.output == 'html') {
-			$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea').val()));
+			$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
 		}
 	});
 
@@ -913,22 +920,6 @@ $.fn.mdeditor = function (settings) {
 
 				return true;
 			});
-
-			// Line Breaks in textarea
-			$(document).keypress(function (e) {
-				if (e.keyCode == 13) {
-					if ($('#MDEditor_' + elementName + '_body_edit_textarea').is('textarea:focus') === true) {
-						$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('insert', '  \r\n');
-						$('#MDEditor_' + elementName + '_body_edit_textarea').textrange('set', $('#MDEditor_' + elementName + '_body_edit_textarea').textrange().start+3, 0);
-
-						return false;
-					} else {
-						return true;
-					}
-				}
-
-				return true;
-			});
 		});
 	}
 
@@ -949,7 +940,7 @@ $.fn.mdeditor = function (settings) {
 		}
 
 		if (settings.output == 'html') {
-			$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea').val()));
+			$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
 		}
 
 		return true;
