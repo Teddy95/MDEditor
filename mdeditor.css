@@ -327,4 +327,6 @@
 
 pre {
 	background-color: #f8f8f8 !important;
+	word-wrap: break-word !important;
+	word-break: break-all !important;
 }
