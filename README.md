@@ -63,8 +63,8 @@ $.("#mdeditor").mdeditor({
 | ![](http://www.w3schools.com/images/compatible_ie.gif) | 9 or higher | 
 | ![](http://www.w3schools.com/images/compatible_chrome.gif) | Works! Tested in version 29 | 
 | ![](http://www.w3schools.com/images/compatible_firefox.gif) | Works! Tested in version 35 | 
-| ![](http://www.w3schools.com/images/compatible_safari.gif) | Not tested - [Tell us!](https://github.com/Teddy95/Starry/issues) | 
-| ![](http://www.w3schools.com/images/compatible_opera.gif) | Not tested - [Tell us!](https://github.com/Teddy95/Starry/issues) | 
+| ![](http://www.w3schools.com/images/compatible_safari.gif) | Not tested - [Tell us!](https://github.com/Teddy95/MDEditor/issues) | 
+| ![](http://www.w3schools.com/images/compatible_opera.gif) | Not tested - [Tell us!](https://github.com/Teddy95/MDEditor/issues) | 
 
 -------------
 
