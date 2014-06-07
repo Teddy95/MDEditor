@@ -1,6 +1,8 @@
 # MDEditor
 
-![Image](http://i.imgur.com/FybiZOu.png)
+<p align="center">
+	<img src="http://i.imgur.com/FybiZOu.png" alt="">
+</p>
 
 MDEditor is a simple Markdown editor.
 
