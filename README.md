@@ -1,10 +1,17 @@
 # MDEditor
 
 <p align="center">
+	<img src="http://root.andre-sieverding.de/briefkasten/GithubRepoLogos/MDEditor.png" alt="">
+	<p align="center">MDEditor is a simple Markdown editor.</p>
+</p>
+
+-------------
+
+<p align="center">
 	<img src="http://i.imgur.com/FybiZOu.png" alt="">
 </p>
 
-MDEditor is a simple Markdown editor.
+### Benefits
 
 - Write text in Markdown and look at it in a preview
 - Upload files and photos
