@@ -1,5 +1,9 @@
 # Changelog
 
+### Version 1.3.0 - 18.06.2014
+
+- Attachment: Select individual images and files by right-clicking to delete them.
+
 ### Version 1.2.1 - 07.06.2014
 
 - Renamed languages
