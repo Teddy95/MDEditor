@@ -145,20 +145,23 @@
 	margin: 25px;
 }
 
-.MDEditor_attachment_image {
+.MDEditor_attachment_image, .MDEditor_attachment_image.MDEditor_addition {
 	display: inline-block;
 	border: 2px solid #f5f5f5;
+	overflow: hidden;
 	margin-left: 5px;
 	width: 115px;
-	max-height: 120px;
+	height: 100px;
 	transition: all 0.2s;
 	-webkit-transition: all 0.2s;
 	-moz-transition: all 0.2s;
 	-ms-transition: all 0.2s;
 	-o-transition: all 0.2s;
+	position: relative;
+	background-size: cover !important;
 }
 
-.MDEditor_attachment_placeholder {
+.MDEditor_attachment_placeholder, .MDEditor_attachment_placeholder.MDEditor_addition {
 	display: inline-block;
 	border: 2px solid #f5f5f5;
 	overflow: hidden;
@@ -172,11 +175,41 @@
 	-moz-transition: all 0.2s;
 	-ms-transition: all 0.2s;
 	-o-transition: all 0.2s;
+	position: relative;
 }
 
-.MDEditor_attachment_image:hover, .MDEditor_attachment_placeholder:hover {
-	border: 2px solid #ff9500;
+.MDEditor_attachment_image:hover, .MDEditor_attachment_placeholder:hover, .MDEditor_attachment_image.MDEditor_addition:hover, .MDEditor_attachment_placeholder.MDEditor_addition:hover {
+	border: 2px solid #ff9500 !important;
 	cursor: pointer;
+}
+
+.MDEditor_attachment_image.MDEditor_addition:before, .MDEditor_attachment_placeholder.MDEditor_addition:before {
+	content: "\f00c";
+	font-family: FontAwesome;
+	color: #ffffff;
+	font-size: 13px;
+	position: absolute;
+	z-index: 2;
+	top: 2px;
+	right: 3px;
+	display: inline-block;
+}
+
+.MDEditor_attachment_image.MDEditor_addition:after, .MDEditor_attachment_placeholder.MDEditor_addition:after {
+	content: "";
+	position: absolute;
+	z-index: 1;
+	top: -4px;
+	right: -16px;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-bottom: 25px solid #ff9500;
+	background-color: #ff9500;
+	width: 0px;
+	height: 0px;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	display: inline-block;
 }
 
 .MDEditor_attachment_placeholder p {
