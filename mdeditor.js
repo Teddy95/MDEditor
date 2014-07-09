@@ -262,6 +262,14 @@ function mdeditorButtonAttachment (elementName) {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
 		$(':submit').off();
 		$(':submit').click(function () {
+			if (settings.output == 'markdown') {
+				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
+			}
+
+			if (settings.output == 'html') {
+				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
+			}
+			
 			return true;
 		});
 	});
@@ -485,6 +493,14 @@ function mdeditorButtonPreview (elementName) {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
 		$(':submit').off();
 		$(':submit').click(function () {
+			if (settings.output == 'markdown') {
+				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
+			}
+
+			if (settings.output == 'html') {
+				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
+			}
+
 			return true;
 		});
 	});
@@ -517,6 +533,14 @@ function mdeditorButtonHelp (elementName) {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
 		$(':submit').off();
 		$(':submit').click(function () {
+			if (settings.output == 'markdown') {
+				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
+			}
+
+			if (settings.output == 'html') {
+				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
+			}
+
 			return true;
 		});
 	});
@@ -548,6 +572,14 @@ function mdeditorButtonCopyright (elementName) {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
 		$(':submit').off();
 		$(':submit').click(function () {
+			if (settings.output == 'markdown') {
+				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
+			}
+
+			if (settings.output == 'html') {
+				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
+			}
+
 			return true;
 		});
 	});
@@ -578,6 +610,14 @@ function mdeditorOptioncontainerCancel (elementName) {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
 		$(':submit').off();
 		$(':submit').click(function () {
+			if (settings.output == 'markdown') {
+				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
+			}
+
+			if (settings.output == 'html') {
+				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
+			}
+
 			return true;
 		});
 	});
@@ -595,6 +635,14 @@ function mdeditorOptioncontainerInsertElement (elementName) {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
 		$(':submit').off();
 		$(':submit').click(function () {
+			if (settings.output == 'markdown') {
+				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
+			}
+
+			if (settings.output == 'html') {
+				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
+			}
+
 			return true;
 		});
 	});
