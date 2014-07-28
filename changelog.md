@@ -1,8 +1,12 @@
 # Changelog
 
+### Version 1.4.0 - 28.07.2014
+
+- Fatal error fixed ([https://github.com/Teddy95/MDEditor/issues/2](https://github.com/Teddy95/MDEditor/issues/2))
+
 ### Version 1.3.0 - 18.06.2014
 
-- Attachment: Select individual images and files by right-clicking to delete them
+- Attachment: Select individual images and files by right-clicking to delete them.
 
 ### Version 1.2.1 - 07.06.2014
 
