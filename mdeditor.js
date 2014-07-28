@@ -40,6 +40,7 @@ var mdeditor = {
 	elementName: null,
 	globalClick: true,
 	lineBreaks: true,
+	output: null,
 	maxUpload: null,
 	notUpload: null,
 	syntaxHighlighting: true
@@ -260,18 +261,7 @@ function mdeditorButtonAttachment (elementName) {
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeIn(200);
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
-		$(':submit').off();
-		$(':submit').click(function () {
-			if (settings.output == 'markdown') {
-				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
-			}
-
-			if (settings.output == 'html') {
-				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
-			}
-			
-			return true;
-		});
+		submitForm(elementName);
 	});
 
 	var language;
@@ -491,18 +481,7 @@ function mdeditorButtonPreview (elementName) {
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeIn(200);
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
-		$(':submit').off();
-		$(':submit').click(function () {
-			if (settings.output == 'markdown') {
-				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
-			}
-
-			if (settings.output == 'html') {
-				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
-			}
-
-			return true;
-		});
+		submitForm(elementName);
 	});
 
 	var editorValue;
@@ -531,18 +510,7 @@ function mdeditorButtonHelp (elementName) {
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeIn(200);
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
-		$(':submit').off();
-		$(':submit').click(function () {
-			if (settings.output == 'markdown') {
-				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
-			}
-
-			if (settings.output == 'html') {
-				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
-			}
-
-			return true;
-		});
+		submitForm(elementName);
 	});
 
 	var language;
@@ -570,18 +538,7 @@ function mdeditorButtonCopyright (elementName) {
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeIn(200);
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
-		$(':submit').off();
-		$(':submit').click(function () {
-			if (settings.output == 'markdown') {
-				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
-			}
-
-			if (settings.output == 'html') {
-				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
-			}
-
-			return true;
-		});
+		submitForm(elementName);
 	});
 
 	var language;
@@ -608,18 +565,7 @@ function mdeditorButtonCopyright (elementName) {
 function mdeditorOptioncontainerCancel (elementName) {
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
-		$(':submit').off();
-		$(':submit').click(function () {
-			if (settings.output == 'markdown') {
-				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
-			}
-
-			if (settings.output == 'html') {
-				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
-			}
-
-			return true;
-		});
+		submitForm(elementName);
 	});
 	$('.tipsy').css('display', 'none');
 }
@@ -633,18 +579,7 @@ function mdeditorOptioncontainerInsertElement (elementName) {
 
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
 		$('#MDEditor_' + elementName + '_body_optioncontainer_content').empty().css('vertical-align', 'top');
-		$(':submit').off();
-		$(':submit').click(function () {
-			if (settings.output == 'markdown') {
-				$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
-			}
-
-			if (settings.output == 'html') {
-				$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
-			}
-
-			return true;
-		});
+		submitForm(elementName);
 	});
 }
 
@@ -654,6 +589,26 @@ function mdeditorActioncontainerCancel (elementName) {
 		$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'top');
 	});
 	$('.tipsy').css('display', 'none');
+}
+
+// Submit manipulation
+function submitForm (elementName) {
+	$(':submit').off();
+	$(':submit').click(function () {
+		if (mdeditor.output == 'markdown') {
+			var value;
+			value = $('#MDEditor_' + elementName + '_body_edit_textarea').val();
+			$('#MDEditor_' + elementName + '_outputarea').val(value);
+		}
+
+		if (mdeditor.output == 'html') {
+			var value;
+			value = marked($('#MDEditor_' + elementName + '_body_edit_textarea').val(), { gfm: true, tables: true, breaks: mdeditor.lineBreaks });
+			$('#MDEditor_' + elementName + '_outputarea').val(value);
+		}
+
+		return true;
+	});
 }
 
 // Create the Editor
@@ -766,6 +721,7 @@ $.fn.mdeditor = function (settings) {
 	mdeditor.maxUpload = settings.maxUpload;
 	mdeditor.language = settings.language;
 	mdeditor.lineBreaks = settings.lineBreaks;
+	mdeditor.output = settings.output;
 	mdeditor.notUpload = settings.notUpload;
 
 	if (settings.theme !== false) {
@@ -894,7 +850,7 @@ $.fn.mdeditor = function (settings) {
 		settingsFooter = "<p style='display: inline; float: right;'>© " + date.getFullYear() + " <a onclick='mdeditorButtonCopyright(\"" + elementName + "\")'>MDEditor</a></p>";
 	} else {
 		if (settings.footer == 'version') {
-			settingsFooter = "<p style='display: inline; float: right;'>v1.3.0</p>";
+			settingsFooter = "<p style='display: inline; float: right;'>v1.4.0</p>";
 		} else {
 			if (settings.footer == 'none') {
 				settingsFooter = '';
@@ -981,16 +937,5 @@ $.fn.mdeditor = function (settings) {
 	});
 
 	// Submit manipulation
-	$(':submit').off();
-	$(':submit').click(function () {
-		if (settings.output == 'markdown') {
-			$('#MDEditor_' + elementName + '_outputarea').val($('#MDEditor_' + elementName + '_body_edit_textarea').val());
-		}
-
-		if (settings.output == 'html') {
-			$('#MDEditor_' + elementName + '_outputarea').val(marked($('#MDEditor_' + elementName + '_body_edit_textarea', { gfm: true, tables: true, breaks: settings.lineBreaks }).val()));
-		}
-
-		return true;
-	});
+	submitForm(elementName);
 };
