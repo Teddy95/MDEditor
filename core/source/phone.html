@@ -29,9 +29,5 @@
 		}
 	});
 	
-	$(':submit').off();
-	$(':submit').click(function () {
-		$('#MDEditor_' + elementName + '_body_optioncontainer_buttons_insert').click();
-		return false;
-	});
+	submitForm(elementName);
 </script>
