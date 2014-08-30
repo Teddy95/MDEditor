@@ -73,7 +73,7 @@ $files = glob('../../attachment/*.*');
 	<hr />
 	
 	<?php	
-	if (count($files) > 0) {
+	if (count($files) > 0 && $files !== false) {
 		$i = 0;
 		$j = 0;
 
