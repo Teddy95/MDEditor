@@ -43,7 +43,8 @@ var mdeditor = {
 	output: null,
 	maxUpload: null,
 	notUpload: null,
-	syntaxHighlighting: true
+	syntaxHighlighting: true,
+	attachmentDir: null
 };
 
 // Paste text at cursor position
@@ -269,7 +270,7 @@ function mdeditorButtonAttachment (elementName) {
 
 	$.ajax({
 		type: 'GET',
-		url: mdeditor.url + 'core/source/attachment.php?path=' + mdeditor.url + '&lang=' + mdeditor.language,
+		url: mdeditor.url + 'core/source/attachment.php?path=' + mdeditor.url + '&attachmentDir=' + mdeditor.attachmentDir + '&lang=' + mdeditor.language,
 		data: 'returnData',
 		success: function (returnData) {
 			$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
@@ -808,6 +809,12 @@ $.fn.mdeditor = function (settings) {
 
 	if (settings.attachment === true) {
 		settingsAttachment = "<div class='btn-group' style='float: right;'><button id='MDEditor_" + elementName + "_buttons_button_attachment' type='button' class='btn btn-default' onclick='mdeditorButtonAttachment(\"" + elementName + "\");'><i class='fa fa-paperclip'></i> " + language.button.attachment + "</button></div>";
+		
+		if (typeof settings.attachmentDir == 'undefined') {
+			settings.attachmentDir = 'attachment/';
+		}
+
+		mdeditor.attachmentDir = settings.attachmentDir;
 	} else {
 		settingsAttachment = '';
 	}
