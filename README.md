@@ -46,6 +46,7 @@ $("#mdeditor").mdeditor({
 	helpIcon: true, // includes help button
 	preview: true, // includes preview button
 	attachment: true, // includes attachment button
+	attachmentDir: 'attachment/', // select attachment directory
 	wordCounter: true, // includes word counter
 	includeTipsy: true, // includes tipsy, if you haven't already done this
 	syntaxHighlighting: true, // activate syntax highlighting in code examples (highlight.js)
