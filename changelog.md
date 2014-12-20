@@ -1,5 +1,10 @@
 # Changelog
 
+### Version 1.5.0 - xx.12.2014
+
+- Add [attachmentDir option](https://github.com/Teddy95/MDEditor/wiki/attachmentDir-option)
+- Can now create, remove and read directorys
+
 ### Version 1.4.0 - 28.07.2014
 
 - Fatal error fixed ([https://github.com/Teddy95/MDEditor/issues/2](https://github.com/Teddy95/MDEditor/issues/2))
