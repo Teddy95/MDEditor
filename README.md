@@ -101,7 +101,7 @@ MDEditor use [chjj/marked](https://github.com/chjj/marked) to transform Markdown
 ### Download
 
 - [Releases on Github](https://github.com/Teddy95/MDEditor/releases)
-- **[Download latest version from Github](https://github.com/Teddy95/MDEditor/archive/v1.4.0.zip)**
+- **[Download latest version from Github](https://github.com/Teddy95/MDEditor/archive/v1.5.0.zip)**
 - [Download master from Github](https://github.com/Teddy95/MDEditor/archive/master.zip)
 
 -------------
