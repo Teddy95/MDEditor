@@ -257,7 +257,8 @@ function mdeditorButtonPhone (elementName) {
 	});
 }
 
-function mdeditorButtonAttachment (elementName) {
+function mdeditorButtonAttachment (elementName, source) {
+	$('.tipsy').css('display', 'none');
 	$('#MDEditor_' + elementName + '_body_actioncontainer_content').empty().css('vertical-align', 'middle').html("<img class='MDEditor_ajaxloader' src='" + mdeditor.url + "img/ajax.gif' alt='AJAX load' />");
 	$('#MDEditor_' + elementName + '_body_actioncontainer').fadeIn(200);
 	$('#MDEditor_' + elementName + '_body_optioncontainer').fadeOut(200, function () {
@@ -268,9 +269,15 @@ function mdeditorButtonAttachment (elementName) {
 	var language;
 	language = mdeditor.lang;
 
+	if (typeof source == 'undefined') {
+		source = '';
+	}
+
+	source = source.replace(mdeditor.attachmentDir, '');
+
 	$.ajax({
 		type: 'GET',
-		url: mdeditor.url + 'core/source/attachment.php?path=' + mdeditor.url + '&attachmentDir=' + mdeditor.attachmentDir + '&lang=' + mdeditor.language,
+		url: mdeditor.url + 'core/source/attachment.php?path=' + mdeditor.url + '&staticAttachmentDir=' + mdeditor.attachmentDir + '&attachmentDir=' + mdeditor.attachmentDir + source + '&lang=' + mdeditor.language,
 		data: 'returnData',
 		success: function (returnData) {
 			$('#MDEditor_' + elementName + '_body_actioncontainer_content').fadeOut(80, function () {
