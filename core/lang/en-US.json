@@ -41,7 +41,12 @@
 				"max": "The selected file is to large!",
 				"not": "This file type is not allowed!",
 				"unknown": "An unknown error has occurred!"
-			}
+			},
+			"createdir": {
+				"text": "Directory name",
+				"default": "New folder"
+			},
+			"rename": "New filename"
 		},
 		"error": "Please check your internet connection!"
 	},
@@ -104,8 +109,11 @@
 				"title": "Attachment",
 				"fileupload": "Upload file",
 				"empty": "Currently there are no files!",
-				"deleteall": "Delete files",
 				"upload": "Upload file",
+				"createdir": "Create directory",
+				"rename": "Rename",
+				"deleteall": "Delete files",
+				"directories": "Directories",
 				"images": "Images",
 				"audio": "Audio files",
 				"videos": "Videos",
