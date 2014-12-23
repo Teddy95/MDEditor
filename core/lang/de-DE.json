@@ -41,7 +41,12 @@
 				"max": "Die hochzuladende Datei ist zu groß!",
 				"not": "Dieser Dateityp ist nicht erlaubt!",
 				"unknown": "Ein unbekannter Fehler ist aufgetreten!"
-			}
+			},
+			"createdir": {
+				"text": "Verzeichnisname",
+				"default": "Neuer Ordner"
+			},
+			"rename": "Neuer Dateiname"
 		},
 		"error": "Bitte prüfen Sie ihre Internetverbindung!"
 	},
@@ -104,8 +109,11 @@
 				"title": "Anhang",
 				"fileupload": "Datei hochladen",
 				"empty": "Zur Zeit sind keine Dateien vorhanden!",
-				"deleteall": "Dateien löschen",
 				"upload": "Datei hochladen",
+				"createdir": "Verzeichnis anlegen",
+				"rename": "Umbenennen",
+				"deleteall": "Dateien löschen",
+				"directories": "Verzeichnisse",
 				"images": "Bilder",
 				"audio": "Audio Dateien",
 				"videos": "Videos",
