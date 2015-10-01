@@ -1,5 +1,10 @@
 # MDEditor
 
+> Last Version of this development: v1.5.0  
+> MDEditor 2 is under construction! :smile:
+
+-------------
+
 <p align="center">
 	<img src="http://root.andre-sieverding.de/briefkasten/GithubRepoLogos/MDEditor.png" alt="">
 	<p align="center">MDEditor is a simple Markdown editor.</p>
