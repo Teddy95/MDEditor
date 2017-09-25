@@ -60,7 +60,8 @@ $("#mdeditor").mdeditor({
 		'py',
 		'rb',
 		'pl'
-	] // .php, .py, .rb and .pl files aren't allowed for upload
+	], // .php, .py, .rb and .pl files aren't allowed for upload
+	footer: 'copyright' // copyright, version or none
 });
 ```
 
